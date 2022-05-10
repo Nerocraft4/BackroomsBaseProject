@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/runsteps.mp3-d8c46cffa54184998b258ee92b7e2bac.mp3str"
+
+[deps]
+
+source_file="res://Sounds/runsteps.mp3"
+dest_files=[ "res://.import/runsteps.mp3-d8c46cffa54184998b258ee92b7e2bac.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

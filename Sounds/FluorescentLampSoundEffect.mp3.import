@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/FluorescentLampSoundEffect.mp3-fa9058c22be45a090c6ef73629cf2b6f.mp3str"
+
+[deps]
+
+source_file="res://Sounds/FluorescentLampSoundEffect.mp3"
+dest_files=[ "res://.import/FluorescentLampSoundEffect.mp3-fa9058c22be45a090c6ef73629cf2b6f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

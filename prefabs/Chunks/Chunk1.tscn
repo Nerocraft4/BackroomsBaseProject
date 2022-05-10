@@ -1,0 +1,619 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://prefabs/FloorTile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://prefabs/WallBlock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://prefabs/Pillar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/ChunkManager.gd" type="Script" id=4]
+
+[sub_resource type="BoxShape" id=1]
+
+[node name="Chunk1" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="Floor" type="Spatial" parent="."]
+
+[node name="FloorTile" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="FloorTile6" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80 )
+
+[node name="FloorTile7" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 60 )
+
+[node name="FloorTile5" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40 )
+
+[node name="FloorTile4" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40 )
+
+[node name="FloorTile3" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20 )
+
+[node name="FloorTile2" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
+
+[node name="FloorTile22" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0 )
+
+[node name="FloorTile23" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -80 )
+
+[node name="FloorTile24" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 60 )
+
+[node name="FloorTile25" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 40 )
+
+[node name="FloorTile26" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -40 )
+
+[node name="FloorTile27" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -20 )
+
+[node name="FloorTile28" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 20 )
+
+[node name="FloorTile36" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0 )
+
+[node name="FloorTile37" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, -60 )
+
+[node name="FloorTile50" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, -80 )
+
+[node name="FloorTile38" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 60 )
+
+[node name="FloorTile39" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 40 )
+
+[node name="FloorTile40" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, -40 )
+
+[node name="FloorTile41" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, -20 )
+
+[node name="FloorTile42" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 20 )
+
+[node name="FloorTile29" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 0 )
+
+[node name="FloorTile30" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -80 )
+
+[node name="FloorTile31" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 60 )
+
+[node name="FloorTile32" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 40 )
+
+[node name="FloorTile33" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -40 )
+
+[node name="FloorTile34" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -20 )
+
+[node name="FloorTile35" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 20 )
+
+[node name="FloorTile15" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0 )
+
+[node name="FloorTile16" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -80 )
+
+[node name="FloorTile17" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 60 )
+
+[node name="FloorTile18" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 40 )
+
+[node name="FloorTile19" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -40 )
+
+[node name="FloorTile20" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -20 )
+
+[node name="FloorTile21" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 20 )
+
+[node name="FloorTile43" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
+
+[node name="FloorTile44" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -80 )
+
+[node name="FloorTile45" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 60 )
+
+[node name="FloorTile46" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 40 )
+
+[node name="FloorTile47" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -40 )
+
+[node name="FloorTile48" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -20 )
+
+[node name="FloorTile49" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 20 )
+
+[node name="FloorTile8" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0 )
+
+[node name="FloorTile9" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -80 )
+
+[node name="FloorTile51" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60 )
+
+[node name="FloorTile52" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -60 )
+
+[node name="FloorTile53" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -60 )
+
+[node name="FloorTile54" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -60 )
+
+[node name="FloorTile55" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -60 )
+
+[node name="FloorTile56" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -60 )
+
+[node name="FloorTile10" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 60 )
+
+[node name="FloorTile57" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 80 )
+
+[node name="FloorTile58" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 80 )
+
+[node name="FloorTile59" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 80 )
+
+[node name="FloorTile64" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 0 )
+
+[node name="FloorTile65" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, -60 )
+
+[node name="FloorTile66" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, -80 )
+
+[node name="FloorTile67" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 60 )
+
+[node name="FloorTile68" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 40 )
+
+[node name="FloorTile69" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, -40 )
+
+[node name="FloorTile70" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, -20 )
+
+[node name="FloorTile71" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 20 )
+
+[node name="FloorTile72" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 80 )
+
+[node name="FloorTile73" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, 0 )
+
+[node name="FloorTile74" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -60 )
+
+[node name="FloorTile75" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -80 )
+
+[node name="FloorTile76" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, 60 )
+
+[node name="FloorTile77" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, 40 )
+
+[node name="FloorTile78" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -40 )
+
+[node name="FloorTile79" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -20 )
+
+[node name="FloorTile80" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, 20 )
+
+[node name="FloorTile81" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, 80 )
+
+[node name="FloorTile60" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 80 )
+
+[node name="FloorTile61" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 80 )
+
+[node name="FloorTile62" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 80 )
+
+[node name="FloorTile63" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 80 )
+
+[node name="FloorTile11" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 40 )
+
+[node name="FloorTile12" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -40 )
+
+[node name="FloorTile13" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -20 )
+
+[node name="FloorTile14" parent="Floor" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 20 )
+
+[node name="Walls" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="OutsideWall" type="Spatial" parent="Walls"]
+
+[node name="WallBlock1" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 4, -80 )
+
+[node name="WallBlock2" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4, -80 )
+
+[node name="WallBlock23" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 4, -80 )
+
+[node name="WallBlock3" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 4, -80 )
+
+[node name="WallBlock32" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 4, -80 )
+
+[node name="WallBlock4" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 4, -80 )
+
+[node name="WallBlock31" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 81, 4, -80 )
+
+[node name="WallBlock22" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 4, -80 )
+
+[node name="WallBlock5" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 4, 100 )
+
+[node name="WallBlock6" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 4, 100 )
+
+[node name="WallBlock24" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4, 100 )
+
+[node name="WallBlock7" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 4, 100 )
+
+[node name="WallBlock27" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 4, 100 )
+
+[node name="WallBlock8" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 4, 100 )
+
+[node name="WallBlock28" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 4, 100 )
+
+[node name="WallBlock21" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 4, 100 )
+
+[node name="WallBlock9" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -80, 4, 60 )
+
+[node name="WallBlock26" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -80, 4, 80 )
+
+[node name="WallBlock10" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -80, 4, 20 )
+
+[node name="WallBlock11" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -80, 4, 40 )
+
+[node name="WallBlock12" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -80, 4, -20 )
+
+[node name="WallBlock13" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -80, 4, -80 )
+
+[node name="WallBlock14" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -80, 4, -40 )
+
+[node name="WallBlock25" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -80, 4, -60 )
+
+[node name="WallBlock15" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 100, 4, 60 )
+
+[node name="WallBlock29" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 100, 4, 80 )
+
+[node name="WallBlock16" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 100, 4, 20 )
+
+[node name="WallBlock17" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 100, 4, 40 )
+
+[node name="WallBlock18" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 100, 4, -20 )
+
+[node name="WallBlock19" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 100, 4, -60 )
+
+[node name="WallBlock30" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 100, 4, -80 )
+
+[node name="WallBlock20" parent="Walls/OutsideWall" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 100, 4, -40 )
+
+[node name="InsideWalls" type="Spatial" parent="Walls"]
+
+[node name="WallBlock" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, -20 )
+
+[node name="WallBlock15" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 4, -20 )
+
+[node name="WallBlock41" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 4, -34 )
+
+[node name="WallBlock42" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 4, -34 )
+
+[node name="WallBlock43" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -34 )
+
+[node name="WallBlock60" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4, -34 )
+
+[node name="WallBlock37" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 4, -40 )
+
+[node name="WallBlock38" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 4, -40 )
+
+[node name="WallBlock3" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 4, -60 )
+
+[node name="WallBlock25" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 4, -20 )
+
+[node name="WallBlock26" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 4, -60 )
+
+[node name="WallBlock7" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 4, 40 )
+
+[node name="WallBlock32" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 4, 40 )
+
+[node name="WallBlock33" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 4, 40 )
+
+[node name="WallBlock53" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 4, 80 )
+
+[node name="WallBlock29" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4, 40 )
+
+[node name="WallBlock63" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4, 60 )
+
+[node name="WallBlock64" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 4, 60 )
+
+[node name="WallBlock14" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 60 )
+
+[node name="WallBlock30" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 4, 60 )
+
+[node name="WallBlock24" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 4, 60 )
+
+[node name="WallBlock48" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 4, 20 )
+
+[node name="WallBlock4" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 4, -60 )
+
+[node name="WallBlock16" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 4, -20 )
+
+[node name="WallBlock17" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 4, 20 )
+
+[node name="WallBlock18" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 20 )
+
+[node name="WallBlock19" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 4, 20 )
+
+[node name="WallBlock20" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 4, 20 )
+
+[node name="WallBlock57" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69, 4, 0 )
+
+[node name="WallBlock58" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 4, 0 )
+
+[node name="WallBlock5" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4, -80 )
+
+[node name="WallBlock8" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40, 4, -20 )
+
+[node name="WallBlock40" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 60, 4, -34 )
+
+[node name="WallBlock61" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 60, 4, 0 )
+
+[node name="WallBlock9" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 4, -80 )
+
+[node name="WallBlock35" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 80, 4, -40 )
+
+[node name="WallBlock36" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 80, 4, -60 )
+
+[node name="WallBlock39" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 4, -60 )
+
+[node name="WallBlock10" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40, 4, 50 )
+
+[node name="WallBlock65" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40, 4, 80 )
+
+[node name="WallBlock34" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 60, 4, 40 )
+
+[node name="WallBlock11" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4, 60 )
+
+[node name="WallBlock55" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 4, 80 )
+
+[node name="WallBlock56" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 4, 80 )
+
+[node name="WallBlock12" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 4, 0 )
+
+[node name="WallBlock13" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 4, 20 )
+
+[node name="WallBlock6" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 4, -20 )
+
+[node name="WallBlock21" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40, 4, 0 )
+
+[node name="WallBlock27" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 4, -40 )
+
+[node name="WallBlock28" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 4, -80 )
+
+[node name="WallBlock22" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40, 4, 20 )
+
+[node name="WallBlock31" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40, 4, 40 )
+
+[node name="WallBlock23" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4, 40 )
+
+[node name="WallBlock51" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 60, 4, 60 )
+
+[node name="WallBlock52" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 80, 4, 40 )
+
+[node name="WallBlock62" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 80, 4, 20 )
+
+[node name="WallBlock54" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 70, 4, 40 )
+
+[node name="WallBlock50" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 4, 0 )
+
+[node name="WallBlock44" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 4, -20 )
+
+[node name="WallBlock45" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 4, 0 )
+
+[node name="WallBlock46" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60, 4, 10 )
+
+[node name="WallBlock49" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60, 4, 30 )
+
+[node name="WallBlock47" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60, 4, -20 )
+
+[node name="WallBlock59" parent="Walls/InsideWalls" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60, 4, -60 )
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="Pillar3" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 5, -20 )
+
+[node name="Pillar6" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 5, -1 )
+
+[node name="Pillar7" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, -14 )
+
+[node name="Pillar8" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 5, 30 )
+
+[node name="Pillar9" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5, 30 )
+
+[node name="Pillar10" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 5, 80 )
+
+[node name="Pillar11" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 5, 80 )
+
+[node name="Pillar2" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 5, -40 )
+
+[node name="Pillar" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 5, -40 )
+
+[node name="Detects" type="Spatial" parent="."]
+
+[node name="AreaNZ" type="Area" parent="Detects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -90 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Detects/AreaNZ"]
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 40, 0, 1, 0 )
+shape = SubResource( 1 )
+
+[node name="AreaPZ" type="Area" parent="Detects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 90 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Detects/AreaPZ"]
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 40, 0, 1, 0 )
+shape = SubResource( 1 )
+
+[node name="AreaPX" type="Area" parent="Detects"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 90, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Detects/AreaPX"]
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 40, 0, 1, 0 )
+shape = SubResource( 1 )
+
+[node name="AreaNX" type="Area" parent="Detects"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -90, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Detects/AreaNX"]
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 40, 0, 1, 0 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="Detects/AreaNZ" to="." method="_on_AreaNZ_body_entered"]
+[connection signal="body_exited" from="Detects/AreaNZ" to="." method="_on_AreaNZ_body_exited"]
+[connection signal="body_entered" from="Detects/AreaPZ" to="." method="_on_AreaPZ_body_entered"]
+[connection signal="body_exited" from="Detects/AreaPZ" to="." method="_on_AreaPZ_body_exited"]
+[connection signal="body_entered" from="Detects/AreaPX" to="." method="_on_AreaPX_body_entered"]
+[connection signal="body_exited" from="Detects/AreaPX" to="." method="_on_AreaPX_body_exited"]
+[connection signal="body_entered" from="Detects/AreaNX" to="." method="_on_AreaNX_body_entered"]
+[connection signal="body_exited" from="Detects/AreaNX" to="." method="_on_AreaNX_body_exited"]

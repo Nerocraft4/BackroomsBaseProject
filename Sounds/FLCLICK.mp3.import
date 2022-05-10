@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/FLCLICK.mp3-6a66a41f838ee3c0fdeaadef0a15372c.mp3str"
+
+[deps]
+
+source_file="res://Sounds/FLCLICK.mp3"
+dest_files=[ "res://.import/FLCLICK.mp3-6a66a41f838ee3c0fdeaadef0a15372c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

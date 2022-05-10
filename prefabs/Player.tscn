@@ -1,0 +1,116 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/footsteps.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Sounds/runsteps.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/Breathing.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/HeavyBreathing.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/FLCLICK.mp3" type="AudioStream" id=6]
+
+[sub_resource type="CapsuleMesh" id=1]
+mid_height = 3.0
+
+[sub_resource type="CapsuleShape" id=2]
+height = 3.0
+
+[sub_resource type="CylinderShape" id=3]
+height = 1.61066
+
+[sub_resource type="CylinderMesh" id=6]
+
+[sub_resource type="Animation" id=4]
+resource_name = "HeadBob"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.297644, 0.507718, 0.816573, 0.994189 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.08, 0.08, 0 ), Vector3( 0, 0, 0 ), Vector3( -0.08, 0.08, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[node name="Player" type="KinematicBody" groups=["Player"]]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
+collision_layer = 7
+script = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Body" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="Foot" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7, 0 )
+shape = SubResource( 3 )
+
+[node name="Flashlight" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.713593, -0.276973, 0 )
+
+[node name="Flashlight_light" type="SpotLight" parent="Flashlight"]
+transform = Transform( 2.5, 0, 0, 0, 2.49959, -0.0453325, 0, 0.0453325, 2.49959, 0.383935, 1.74314, -2.34184 )
+spot_range = 40.0
+spot_angle = 21.4664
+spot_angle_attenuation = 0.554784
+
+[node name="CSGMesh" type="CSGMesh" parent="Flashlight"]
+transform = Transform( 0.2, 0, 0, 0, -5.68248e-08, -0.2, 0, 1.3, -8.74228e-09, 0.248722, 1.63155, -1.42388 )
+mesh = SubResource( 6 )
+
+[node name="Head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.34947, 0 )
+
+[node name="HeadRotationX" type="Spatial" parent="Head"]
+
+[node name="Camera" type="Camera" parent="Head/HeadRotationX"]
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0 )
+fov = 55.0
+far = 406.1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/HeadRotationX/Camera"]
+anims/HeadBob = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+
+[node name="WalkSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -10.0
+autoplay = true
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
+
+[node name="RunSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -12.0
+
+[node name="BreathingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -20.0
+autoplay = true
+
+[node name="HeavyBreathingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -24.0

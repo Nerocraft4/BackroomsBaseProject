@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Static.mp3-2a5c9ddcf89a5c9e7417b79ad616990c.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Static.mp3"
+dest_files=[ "res://.import/Static.mp3-2a5c9ddcf89a5c9e7417b79ad616990c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

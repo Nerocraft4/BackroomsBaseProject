@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Textures/LightMesh.tres" type="PlaneMesh" id=1]
+
+[node name="MeshInstance" type="MeshInstance"]
+transform = Transform( 1.9, 0, 0, 0, 1, 0, 0, 0, 1.9, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 0.6, 0, 0, 0, 1, 0, 0, 0, 0.6, 0, 0.827643, 0 )
+light_color = Color( 0.956863, 0.894118, 0.564706, 1 )
+shadow_enabled = true
+shadow_reverse_cull_face = true
+omni_range = 15.0
+omni_attenuation = 3.24901
