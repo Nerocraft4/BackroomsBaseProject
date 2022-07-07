@@ -3,7 +3,7 @@
 [ext_resource path="res://prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://BlendSaves/Wall.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://prefabs/CeilingChunk.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/WorldGen.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/WorldGen.gd" type="Script" id=4]
 [ext_resource path="res://prefabs/ChunkFloor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://prefabs/Enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Textures/Wall/RotatedWall.png" type="Texture" id=7]
@@ -12,8 +12,8 @@
 
 [sub_resource type="Environment" id=3]
 background_mode = 1
-ambient_light_color = Color( 0.439216, 0.427451, 0.427451, 1 )
-ambient_light_energy = 0.02
+ambient_light_color = Color( 0.470588, 0.454902, 0.360784, 1 )
+ambient_light_energy = 0.4
 tonemap_mode = 2
 tonemap_exposure = 2.0
 auto_exposure_enabled = true
@@ -21,7 +21,6 @@ auto_exposure_min_luma = 0.2
 dof_blur_far_distance = 60.0
 dof_blur_far_amount = 0.05
 dof_blur_far_quality = 0
-dof_blur_near_enabled = true
 dof_blur_near_distance = 4.0
 dof_blur_near_transition = 3.0
 dof_blur_near_amount = 0.12
@@ -56,12 +55,10 @@ visible = false
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.0457116, 0.998955, 0, -0.114834, 0.00525476, 0.993371, 0.992332, -0.0454086, 0.114954, -6.35547, 14, 51.1321 )
-visible = false
 light_energy = 0.05
 
 [node name="DirectionalLight2" type="DirectionalLight" parent="."]
 transform = Transform( 0.0457118, 0.998955, 0, 4.36657e-08, -1.99812e-09, -1, -0.998955, 0.0457118, -4.37114e-08, -6.35547, 14, 51.1321 )
-visible = false
 light_energy = 0.1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -98,7 +95,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall2" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -115,7 +111,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall2/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall3" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -132,7 +127,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall3/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall4" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -149,7 +143,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall4/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall5" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -166,7 +159,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall5/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall6" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -183,7 +175,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall6/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall7" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -200,7 +191,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall7/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall8" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -217,7 +207,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall8/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall17" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -234,7 +223,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall17/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall18" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -251,7 +239,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall18/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall53" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -268,7 +255,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall53/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall54" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -285,7 +271,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall54/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall55" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -302,7 +287,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall55/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall56" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -319,7 +303,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall56/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall57" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -336,7 +319,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall57/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall58" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -353,7 +335,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall58/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall59" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -370,7 +351,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall59/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall60" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -387,7 +367,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall60/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall61" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -404,7 +383,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall61/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall62" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -421,7 +399,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall62/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall63" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -438,7 +415,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall63/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall64" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -455,7 +431,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall64/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall65" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -472,7 +447,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall65/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall66" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -489,7 +463,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall66/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall67" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -506,7 +479,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall67/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall68" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -523,7 +495,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall68/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall69" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -540,7 +511,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall69/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall85" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -574,7 +544,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall70/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall71" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -591,7 +560,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall71/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall72" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -608,7 +576,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall72/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall73" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -625,7 +592,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall73/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall74" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -642,7 +608,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall74/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall75" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -659,7 +624,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall75/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall76" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -676,7 +640,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall76/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall77" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -693,7 +656,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall77/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall78" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -710,7 +672,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall78/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall79" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -727,7 +688,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall79/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall80" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -744,7 +704,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall80/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall81" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -761,7 +720,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall81/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall82" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]
@@ -778,7 +736,6 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Walls/Wall82/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
 
 [node name="Wall9" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Walls"]

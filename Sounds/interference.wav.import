@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/interference.wav-ebae8f71995da32eca5264e5c6d676f6.sample"
+
+[deps]
+
+source_file="res://Sounds/interference.wav"
+dest_files=[ "res://.import/interference.wav-ebae8f71995da32eca5264e5c6d676f6.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

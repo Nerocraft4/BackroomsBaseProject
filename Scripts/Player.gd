@@ -5,8 +5,8 @@ var mouse_sensitivity = 0.10
 onready var head = $Head
 onready var head_x = $Head/HeadRotationX
 onready var anim_play = $Head/HeadRotationX/Camera/AnimationPlayer
-onready var flashlight = $Flashlight
-onready var flashlight_light = $Flashlight/Flashlight_light
+#onready var flashlight = $Head/HeadRotationX/Flashlight
+#onready var flashlight_light = $Head/HeadRotationX/Flashlight/Flashlight_light
 const FL_SPEED = 15
 
 export var speed = 10
@@ -25,12 +25,11 @@ func _input(event):
 		head_x.rotation_degrees.x -= mouse_sensitivity*event.relative.y
 		head_x.rotation_degrees.x = clamp(head_x.rotation_degrees.x, -89, 89)
 	if event is InputEventKey:
-		if event.scancode == KEY_F and event.pressed:
-			flashlight_light.visible = !flashlight_light.visible
+		if event.scancode == KEY_F and event.pressed:			
 			$Click.play()
 
 func _physics_process(delta):
-	make_flashlight_follow(delta)
+	#make_flashlight_follow(delta)
 	var head_basis = head.get_global_transform().basis
 	direction = Vector3.ZERO
 	if Input.is_action_pressed("move_forward"):
@@ -76,6 +75,6 @@ func _physics_process(delta):
 		$HeavyBreathingSound.stop()
 		anim_play.play("RESET")
 
-func make_flashlight_follow(delta):
-	flashlight.rotation.y = lerp(flashlight.rotation.y, head.rotation.y, delta*FL_SPEED)
-	flashlight.rotation.x = lerp(flashlight.rotation.x, head_x.rotation.x, delta*FL_SPEED)
+#func make_flashlight_follow(delta):
+#	flashlight.rotation.y = lerp(flashlight.rotation.y, head.rotation.y, delta*FL_SPEED)
+#	flashlight.rotation.x = lerp(flashlight.rotation.x, head_x.rotation.x, delta*FL_SPEED)

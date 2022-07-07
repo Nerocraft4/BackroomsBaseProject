@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/beepOff.wav-5ab49aba7e8d8cc64d5155c4274f4e63.sample"
+
+[deps]
+
+source_file="res://Sounds/beepOff.wav"
+dest_files=[ "res://.import/beepOff.wav-5ab49aba7e8d8cc64d5155c4274f4e63.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

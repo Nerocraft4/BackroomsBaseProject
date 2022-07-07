@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/detection_alert.wav-36d231a798fca526a5b0d29cb6bfa0ae.sample"
+
+[deps]
+
+source_file="res://Sounds/detection_alert.wav"
+dest_files=[ "res://.import/detection_alert.wav-36d231a798fca526a5b0d29cb6bfa0ae.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

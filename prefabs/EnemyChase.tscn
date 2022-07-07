@@ -134,7 +134,7 @@ max_distance = 60.0
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -2, 0, 1, -8.74228e-08, 0, 4.53545, 0 )
 shape = SubResource( 18 )
 
-[node name="Timer" type="Timer" parent="." groups=["Enemy"]]
+[node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

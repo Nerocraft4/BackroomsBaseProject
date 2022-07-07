@@ -8,6 +8,8 @@ var movement = Vector3()
 var h_velocity = Vector3()
 var h_acceleration = 10
 
+export var isMoving = false
+
 onready var envo = get_node("../WorldEnvironment")
 
 func _ready():
@@ -40,11 +42,13 @@ func _on_Area_body_entered(body):
 	if(body.is_in_group("Player")):
 		print("Entered")
 		foundPlayer = body
+		isMoving = true
 
 func _on_Area_body_exited(body):
 	if(body.is_in_group("Player")):
 		print("Exited")
 		foundPlayer = null
+		isMoving = false
 
 func norm(v):
 	return sqrt(v.x*v.x+v.y*v.y+v.z*v.z)

@@ -2,7 +2,7 @@ extends Spatial
 
 var size = 36
 var BS = 12
-var difficulty = 7
+var difficulty = 2
 var k = 0
 var rng = RandomNumberGenerator.new()
 onready var LightSource = preload("res://Prefabs/Light2.tscn")

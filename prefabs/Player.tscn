@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/footsteps.mp3" type="AudioStream" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Sounds/Breathing.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/HeavyBreathing.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Sounds/FLCLICK.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Fonts/new_dynamicfont.tres" type="DynamicFont" id=8]
+[ext_resource path="res://prefabs/label_counter.gd" type="Script" id=9]
+[ext_resource path="res://prefabs/motiondetector.tscn" type="PackedScene" id=12]
 
 [sub_resource type="CapsuleMesh" id=1]
 mid_height = 3.0
@@ -15,8 +18,6 @@ height = 3.0
 
 [sub_resource type="CylinderShape" id=3]
 height = 1.61066
-
-[sub_resource type="CylinderMesh" id=6]
 
 [sub_resource type="Animation" id=4]
 resource_name = "HeadBob"
@@ -48,6 +49,32 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ) ]
 }
 
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+vec2 uv_curve(vec2 uv){
+	uv =(uv-0.5)*2.0;
+	uv.x *= 1.0+pow(abs(uv.y)/3.5,2.0);
+	uv.y *= 1.0+pow(abs(uv.x)/4.0,2.0);
+	uv = (uv/2.0)+0.5;
+	uv /= 1.2;
+	return uv;
+}
+
+void fragment (){
+//	vec4 color = texture(SCREEN_TEXTURE, uv_curve(SCREEN_UV));
+	float r = texture(SCREEN_TEXTURE, uv_curve(SCREEN_UV)+vec2(SCREEN_PIXEL_SIZE.x* 0.0),0.0).r;
+	float g = texture(SCREEN_TEXTURE, uv_curve(SCREEN_UV)+vec2(SCREEN_PIXEL_SIZE.x* 2.0),0.0).g;
+	float b = texture(SCREEN_TEXTURE, uv_curve(SCREEN_UV)+vec2(SCREEN_PIXEL_SIZE.x*-2.0),0.0).b;
+	float s = sin(uv_curve(SCREEN_UV).y*180.0+TIME*4.0);
+	s=(s*0.5+0.5)*0.9+0.1;
+	vec4 scan_line = vec4(vec3(pow(s,0.12)),1.0);
+	COLOR = vec4(r,g,b,1.0)*scan_line;
+}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+
 [node name="Player" type="KinematicBody" groups=["Player"]]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
 collision_layer = 7
@@ -66,19 +93,6 @@ shape = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7, 0 )
 shape = SubResource( 3 )
 
-[node name="Flashlight" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.713593, -0.276973, 0 )
-
-[node name="Flashlight_light" type="SpotLight" parent="Flashlight"]
-transform = Transform( 2.5, 0, 0, 0, 2.49959, -0.0453325, 0, 0.0453325, 2.49959, 0.383935, 1.74314, -2.34184 )
-spot_range = 40.0
-spot_angle = 21.4664
-spot_angle_attenuation = 0.554784
-
-[node name="CSGMesh" type="CSGMesh" parent="Flashlight"]
-transform = Transform( 0.2, 0, 0, 0, -5.68248e-08, -0.2, 0, 1.3, -8.74228e-09, 0.248722, 1.63155, -1.42388 )
-mesh = SubResource( 6 )
-
 [node name="Head" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.34947, 0 )
 
@@ -86,12 +100,38 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.34947, 0 )
 
 [node name="Camera" type="Camera" parent="Head/HeadRotationX"]
 transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0 )
-fov = 55.0
+fov = 60.0
 far = 406.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Head/HeadRotationX/Camera"]
 anims/HeadBob = SubResource( 4 )
 anims/RESET = SubResource( 5 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Head/HeadRotationX/Camera"]
+
+[node name="Label" type="Label" parent="Head/HeadRotationX/Camera/CanvasLayer"]
+margin_left = 1.0
+margin_top = 205.0
+margin_right = 204.0
+margin_bottom = 270.0
+rect_rotation = 1.0
+custom_fonts/font = ExtResource( 8 )
+text = "#REC: 00:45"
+align = 1
+valign = 1
+uppercase = true
+script = ExtResource( 9 )
+
+[node name="ColorRect" type="ColorRect" parent="Head/HeadRotationX/Camera/CanvasLayer"]
+material = SubResource( 7 )
+anchor_right = 0.999
+anchor_bottom = 1.0
+margin_right = 0.919922
+
+[node name="Hand" type="Spatial" parent="Head/HeadRotationX"]
+
+[node name="motiondetector" parent="Head/HeadRotationX/Hand" instance=ExtResource( 12 )]
+transform = Transform( 0.3, 0, 0, 0, 0.297296, 0.0401855, 0, -0.0401855, 0.297296, 1, -1.7, -2 )
 
 [node name="WalkSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )

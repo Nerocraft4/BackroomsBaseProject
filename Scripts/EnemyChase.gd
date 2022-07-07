@@ -9,6 +9,7 @@ var velocity = Vector3.ZERO
 var foundPlayer
 
 onready var nav = get_parent()
+export var isMoving = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,11 +39,13 @@ func get_target_path(target_pos):
 func _on_Area_body_entered(body):
 	if(body.is_in_group("Player")):
 		print("EnteredChaser")
+		isMoving = true
 		foundPlayer = body
 
 func _on_Area_body_exited(body):
 	if(body.is_in_group("Player")):
 		print("ExitedChaser")
+		isMoving = false
 		foundPlayer = null
 
 func _on_Timer_timeout():

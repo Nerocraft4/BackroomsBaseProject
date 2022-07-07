@@ -1,0 +1,171 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://prefabs/viewport_minimap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://prefabs/motiondetector.glb" type="PackedScene" id=2]
+[ext_resource path="res://Textures/beep.png" type="Texture" id=3]
+[ext_resource path="res://prefabs/motiondetector.gd" type="Script" id=4]
+[ext_resource path="res://Sounds/detection_alert.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/beep.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/beepOff.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/interference.wav" type="AudioStream" id=8]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="QuadMesh" id=1]
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="SpatialMaterial" id=3]
+resource_local_to_scene = true
+albedo_texture = SubResource( 2 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "Lower"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -0.7, -0.25, 0, 0.25, 0, -1.7, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -1.7, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Raise"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -1.7, -0.25, 0, 0.25, 0, -0.7, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[node name="motiondetector" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.7, -2 )
+script = ExtResource( 4 )
+
+[node name="Viewport" type="Viewport" parent="." index="4"]
+size = Vector2( 1920, 1080 )
+render_target_v_flip = true
+
+[node name="ColorRect" parent="Viewport" index="0" instance=ExtResource( 1 )]
+color = Color( 0.207843, 0.027451, 0.027451, 1 )
+
+[node name="Detection" type="AudioStreamPlayer" parent="Viewport/ColorRect" index="3"]
+stream = ExtResource( 5 )
+volume_db = -8.0
+
+[node name="Mob_Marker" type="AnimatedSprite" parent="Viewport/ColorRect" index="4"]
+scale = Vector2( 0.125, 0.2 )
+frames = SubResource( 4 )
+
+[node name="Player_Marker" type="AnimatedSprite" parent="Viewport/ColorRect" index="5"]
+scale = Vector2( 0.125, 0.2 )
+frames = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="." index="5"]
+transform = Transform( 1.8, 0, 0, 0, 1.4, 0, 0, 0, 1, 0, 0.22171, 0.135921 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="TurnOffDetector" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource( 7 )
+
+[node name="TurnOnDetector" type="AudioStreamPlayer" parent="." index="7"]
+stream = ExtResource( 6 )
+
+[node name="Scan" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource( 8 )
+volume_db = -10.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9"]
+anims/Lower = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+anims/Raise = SubResource( 7 )
