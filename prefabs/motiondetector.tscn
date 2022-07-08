@@ -59,6 +59,18 @@ tracks/2/keys = {
 "points": PoolRealArray( -2, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("OmniLight:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.1, 0.5, 0.0 ]
+}
 
 [sub_resource type="Animation" id=6]
 length = 0.001
@@ -91,6 +103,18 @@ tracks/2/enabled = true
 tracks/2/keys = {
 "points": PoolRealArray( -2, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("OmniLight:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -126,17 +150,34 @@ tracks/2/keys = {
 "points": PoolRealArray( -2, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("OmniLight:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( -0.0131202, 0.0605592, 0.0912973, 0.123132, 0.15387, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.4, 0.2, 0.4, 0.2, 1.0 ]
+}
 
 [node name="motiondetector" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.7, -2 )
 script = ExtResource( 4 )
 
-[node name="Viewport" type="Viewport" parent="." index="4"]
+[node name="OmniLight" type="OmniLight" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.721611 )
+light_color = Color( 0.988235, 0.12549, 0.12549, 1 )
+light_energy = 0.0
+omni_range = 12.4092
+
+[node name="Viewport" type="Viewport" parent="." index="5"]
 size = Vector2( 1920, 1080 )
 render_target_v_flip = true
 
 [node name="ColorRect" parent="Viewport" index="0" instance=ExtResource( 1 )]
-color = Color( 0.207843, 0.027451, 0.027451, 1 )
 
 [node name="Detection" type="AudioStreamPlayer" parent="Viewport/ColorRect" index="3"]
 stream = ExtResource( 5 )
@@ -150,22 +191,22 @@ frames = SubResource( 4 )
 scale = Vector2( 0.125, 0.2 )
 frames = SubResource( 4 )
 
-[node name="MeshInstance" type="MeshInstance" parent="." index="5"]
+[node name="MeshInstance" type="MeshInstance" parent="." index="6"]
 transform = Transform( 1.8, 0, 0, 0, 1.4, 0, 0, 0, 1, 0, 0.22171, 0.135921 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 3 )
 
-[node name="TurnOffDetector" type="AudioStreamPlayer" parent="." index="6"]
+[node name="TurnOffDetector" type="AudioStreamPlayer" parent="." index="7"]
 stream = ExtResource( 7 )
 
-[node name="TurnOnDetector" type="AudioStreamPlayer" parent="." index="7"]
+[node name="TurnOnDetector" type="AudioStreamPlayer" parent="." index="8"]
 stream = ExtResource( 6 )
 
-[node name="Scan" type="AudioStreamPlayer" parent="." index="8"]
+[node name="Scan" type="AudioStreamPlayer" parent="." index="9"]
 stream = ExtResource( 8 )
 volume_db = -10.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10"]
 anims/Lower = SubResource( 5 )
 anims/RESET = SubResource( 6 )
 anims/Raise = SubResource( 7 )

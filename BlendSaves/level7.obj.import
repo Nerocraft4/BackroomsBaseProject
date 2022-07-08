@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/level7.obj-a3f52cd81b40af821879733e450630a3.mesh"
+
+[deps]
+
+files=[ "res://.import/level7.obj-a3f52cd81b40af821879733e450630a3.mesh" ]
+
+source_file="res://BlendSaves/level7.obj"
+dest_files=[ "res://.import/level7.obj-a3f52cd81b40af821879733e450630a3.mesh", "res://.import/level7.obj-a3f52cd81b40af821879733e450630a3.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

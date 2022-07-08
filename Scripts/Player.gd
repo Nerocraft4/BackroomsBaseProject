@@ -1,13 +1,17 @@
 extends KinematicBody
 
+var gravity = 9.8
+var grounded = true
 var mouse_sensitivity = 0.10
 
 onready var head = $Head
 onready var head_x = $Head/HeadRotationX
 onready var anim_play = $Head/HeadRotationX/Camera/AnimationPlayer
-#onready var flashlight = $Head/HeadRotationX/Flashlight
-#onready var flashlight_light = $Head/HeadRotationX/Flashlight/Flashlight_light
-const FL_SPEED = 15
+onready var bar = $Head/HeadRotationX/Camera/CanvasLayer/ProgressBar
+
+export var max_stamina = 1000
+export var stamina = 100
+export var stamina_regen = 1
 
 export var speed = 10
 var run = 1
@@ -17,19 +21,17 @@ var h_velocity = Vector3()
 var movement = Vector3()
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) 
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	stamina = max_stamina
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		head.rotation_degrees.y -= mouse_sensitivity*event.relative.x
 		head_x.rotation_degrees.x -= mouse_sensitivity*event.relative.y
 		head_x.rotation_degrees.x = clamp(head_x.rotation_degrees.x, -89, 89)
-	if event is InputEventKey:
-		if event.scancode == KEY_F and event.pressed:			
-			$Click.play()
 
-func _physics_process(delta):
-	#make_flashlight_follow(delta)
+func _physics_process(delta):	
+	print(stamina)
 	var head_basis = head.get_global_transform().basis
 	direction = Vector3.ZERO
 	if Input.is_action_pressed("move_forward"):
@@ -42,15 +44,22 @@ func _physics_process(delta):
 		direction += head_basis.x
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
-	if Input.is_action_pressed("control"):
+	if Input.is_action_pressed("control") and stamina>0:
 		run = 2
+		stamina -= 2*stamina_regen
 	else:
 		run = 1
-		
-	direction = direction.normalized()
+		if stamina<max_stamina:
+			stamina += 1*stamina_regen
+	bar.value = stamina
+	
+	direction = direction.normalized()	
 	h_velocity = h_velocity.linear_interpolate(direction*speed*run, h_acceleration*delta)
 	movement.z = h_velocity.z
 	movement.x = h_velocity.x
+	if is_on_floor():
+		movement.y = 0
+	movement.y -= 2 * gravity * delta
 	move_and_slide(movement, Vector3.UP)
 
 	if direction != Vector3():
@@ -75,6 +84,12 @@ func _physics_process(delta):
 		$HeavyBreathingSound.stop()
 		anim_play.play("RESET")
 
-#func make_flashlight_follow(delta):
-#	flashlight.rotation.y = lerp(flashlight.rotation.y, head.rotation.y, delta*FL_SPEED)
-#	flashlight.rotation.x = lerp(flashlight.rotation.x, head_x.rotation.x, delta*FL_SPEED)
+func _on_Area_area_entered(body):
+	if(body.is_in_group("Terrain")):
+		print("Grounded")
+		grounded = true
+
+func _on_Area_area_exited(body):
+	if(body.is_in_group("Terrain")):
+		print("Airborne")
+		grounded = false
