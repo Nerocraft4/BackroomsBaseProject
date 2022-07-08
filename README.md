@@ -1,8 +1,8 @@
-# BackroomsBaseProject
+ # BackroomsBaseProject
 Baseplate project made in Godot for a Backrooms Game
 
-# Versions
-### Alpha 1.0
+ # Versions
+ ### Alpha 1.0
 - Added main features to the game
   - Player movement, camera and animations
   - Player sounds (Run/Sprint)
@@ -28,4 +28,12 @@ Baseplate project made in Godot for a Backrooms Game
    - Added shadders to make the game feel like actual footage
    - Added timer (time counter) on the top left of the screen, next to "REC" text
 
+ #### Alpha 1.1.1
+ - Systems / Mechanics
+   - Added Stamina and Stamina Bar
+   - Details / animation to Movement Tracker
+   - Minor changes to player movement
+ - Levels
+   - Added baseplate of Level 7
+   - Added new textures for levels
    
