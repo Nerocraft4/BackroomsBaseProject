@@ -39,7 +39,6 @@ Baseplate project made in Godot for a Backrooms Game
  
  #### Alpha 1.1.2
  - Systems / Mechanics
-   - Added Stamina and Stamina Bar (to be reworked)
    - Added Flash mechanic
    - Model of the "Flasher" tool to be added in 1.1.3
    - Added checkpoint idea (old computers). To be implemented
