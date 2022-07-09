@@ -10,5 +10,6 @@ func _ready():
 
 func _process(delta):
 	if dropped == true:
-		apply_impulse(transform.basis.z, -transform.basis.z*3)
+		print(global_transform)
+#		apply_impulse(transform.basis.z, -transform.basis.z*3)
 		dropped = false

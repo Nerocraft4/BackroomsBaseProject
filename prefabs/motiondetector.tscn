@@ -30,42 +30,22 @@ albedo_texture = SubResource( 2 )
 resource_name = "Lower"
 length = 0.5
 tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:translation:x")
+tracks/0/path = NodePath(".:translation:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -1.7, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
 }
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:translation:y")
+tracks/1/type = "value"
+tracks/1/path = NodePath("OmniLight:light_energy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( -0.7, -0.25, 0, 0.25, 0, -1.7, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.5 )
-}
-tracks/2/type = "bezier"
-tracks/2/path = NodePath(".:translation:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"points": PoolRealArray( -2, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("OmniLight:light_energy")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 0, 0.2, 0.3, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
@@ -81,7 +61,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/1/type = "bezier"
@@ -91,7 +71,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( -1.7, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/2/type = "bezier"
@@ -101,7 +81,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( -2, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/3/type = "value"
@@ -121,42 +101,22 @@ tracks/3/keys = {
 resource_name = "Raise"
 length = 0.5
 tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:translation:x")
+tracks/0/path = NodePath(".:translation:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"points": PoolRealArray( -1.7, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
 }
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:translation:y")
+tracks/1/type = "value"
+tracks/1/path = NodePath("OmniLight:light_energy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( -1.7, -0.25, 0, 0.25, 0, -0.7, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.5 )
-}
-tracks/2/type = "bezier"
-tracks/2/path = NodePath(".:translation:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"points": PoolRealArray( -2, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("OmniLight:light_energy")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( -0.0131202, 0.0605592, 0.0912973, 0.123132, 0.15387, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
@@ -164,7 +124,7 @@ tracks/3/keys = {
 }
 
 [node name="motiondetector" groups=["Item"] instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.7, -2 )
+transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0 )
 script = ExtResource( 4 )
 
 [node name="OmniLight" type="OmniLight" parent="." index="0"]

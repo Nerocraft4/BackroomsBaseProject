@@ -1,12 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://BlendSaves/Camara.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Fonts/RobotoMono-Bold.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Materials/plastic.tres" type="Material" id=3]
-[ext_resource path="res://prefabs/Material_003.material" type="Material" id=4]
-[ext_resource path="res://prefabs/Material_001.material" type="Material" id=5]
-[ext_resource path="res://prefabs/Material_004.material" type="Material" id=6]
-[ext_resource path="res://prefabs/Material_002.material" type="Material" id=7]
 
 [sub_resource type="DynamicFont" id=4]
 size = 300
@@ -27,17 +22,18 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0
 [node name="Camara" type="MeshInstance" parent="."]
 transform = Transform( -8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0 )
 mesh = ExtResource( 1 )
-material/0 = ExtResource( 7 )
-material/1 = ExtResource( 5 )
-material/2 = ExtResource( 3 )
-material/3 = ExtResource( 5 )
-material/4 = ExtResource( 6 )
-material/5 = ExtResource( 4 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
 
 [node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.298281, 0.372926, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0145452, 0.372926, -0.305087 )
 light_color = Color( 0.231373, 0.964706, 0.027451, 1 )
 light_energy = 0.2
+omni_range = 2.0
 
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 700, 600 )

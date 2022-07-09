@@ -39,6 +39,7 @@ Baseplate project made in Godot for a Backrooms Game
  
  #### Alpha 1.1.2
  - Systems / Mechanics
+   - Added Stamina and Stamina Bar (to be reworked)
    - Added Flash mechanic
    - Model of the "Flasher" tool to be added in 1.1.3
    - Added checkpoint idea (old computers). To be implemented
@@ -46,6 +47,16 @@ Baseplate project made in Godot for a Backrooms Game
  #### Alpha 1.1.3
  - Added picking up / dropping items
    - Pick up with E, drop with Q
-   - BUG: Dropping items makes them fall trough the world
-   - BUG: Player can sometimes fall trough the world when picking up / dropping items
+   - BUG A1131: Dropping items makes them fall trough the world
+   - BUG A1132: Player can sometimes fall trough the world when picking up / dropping items
 
+ ### Alpha 1.1.4
+ - Systems / Mechanics
+   - Removed the ability to drop items
+ - Bugs
+   - Fixed Bug A1131
+   - Bug A1132 still persists, even in other levels than Level7
+ - Gameplay 
+   - Main menu revamped
+     - "OPTN" button (options) has no functionality yet
+ 

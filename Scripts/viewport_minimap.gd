@@ -15,6 +15,9 @@ var rot = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(get_tree().get_nodes_in_group("Player"))
+	if get_tree().get_nodes_in_group("Player").size()==0:
+		return
 	player_marker.position = grid.rect_size/2
 	player_marker.position.y += 100
 	grid_scale = grid.rect_size/(get_viewport_rect().size*zoom)

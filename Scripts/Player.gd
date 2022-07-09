@@ -12,13 +12,14 @@ onready var bar = $Head/HeadRotationX/Camera/CanvasLayer/ProgressBar
 onready var FL = $Head/HeadRotationX/SpotLight
 
 onready var reach = $Head/HeadRotationX/Camera/Reach
-onready var hand = $Head/HeadRotationX/Hand
+onready var lefthand = $Head/HeadRotationX/LeftHand
+onready var righthand = $Head/HeadRotationX/RightHand
 
 onready var motiondetector = preload("res://prefabs/motiondetector.tscn")
+onready var motionLR = preload("res://prefabs/MotionLowRes.tscn")
 onready var flasher = preload("res://prefabs/Flasher.tscn")
 onready var flasherLR = preload("res://prefabs/FlasherLowRes.tscn")
 var tospawn = null
-var todrop = null
 
 export var max_stamina = 1000
 export var stamina = 100
@@ -50,32 +51,26 @@ func _process(delta):
 		if reach.is_colliding():
 			if reach.get_collider().get_name() == "FlasherLowRes":
 				tospawn = flasher.instance()
+			elif reach.get_collider().get_name() == "MotionLowRes":
+				tospawn = motiondetector.instance()
 			else:
 				tospawn = null
 		else:
 			tospawn = null
-			
-	if hand.get_child_count() > 0:
-		if hand.get_child(0).get_name() == "Flasher":
-				todrop = flasherLR.instance()
-	else:
-		todrop = null
 		
 	if Input.is_action_just_pressed("interact"):
 		if tospawn != null:
 			print("aquired item")
 			reach.get_collider().queue_free()
-			hand.add_child(tospawn)
-			tospawn.rotation = hand.rotation
-			
-	if Input.is_action_just_pressed("drop"):
-		if todrop != null:
-			print("dropped item")
-			get_parent().add_child(todrop)
-			todrop.global_transform = hand.global_transform
-			todrop.dropped = true
-			hand.get_child(0).queue_free()
-			tospawn=null
+			if tospawn.get_name() == "Flasher":
+				tospawn.rotation = lefthand.rotation
+				lefthand.add_child(tospawn)
+				tospawn = null
+			else:
+				print("Added MotionDetector")
+				tospawn.rotation = righthand.rotation
+				righthand.add_child(tospawn)
+				tospawn = null
 
 func _physics_process(delta):	
 	var head_basis = head.get_global_transform().basis

@@ -187,8 +187,11 @@ texture = ExtResource( 10 )
 enabled = true
 cast_to = Vector3( 0, 0, -5 )
 
-[node name="Hand" type="Spatial" parent="Head/HeadRotationX"]
+[node name="LeftHand" type="Spatial" parent="Head/HeadRotationX"]
 transform = Transform( 0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, -1.616, -0.632, -2.4 )
+
+[node name="RightHand" type="Spatial" parent="Head/HeadRotationX"]
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.616, -0.632, -2.4 )
 
 [node name="SpotLight" type="SpotLight" parent="Head/HeadRotationX"]
 transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.28394, -0.424308, -2.52852 )
