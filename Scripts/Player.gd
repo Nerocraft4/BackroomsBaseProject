@@ -8,12 +8,14 @@ onready var head = $Head
 onready var head_x = $Head/HeadRotationX
 onready var anim_play = $Head/HeadRotationX/Camera/AnimationPlayer
 onready var bar = $Head/HeadRotationX/Camera/CanvasLayer/ProgressBar
+onready var FL = $Head/HeadRotationX/SpotLight
+onready var FTimer = $Timer
 
 export var max_stamina = 1000
 export var stamina = 100
 export var stamina_regen = 1
-
 export var speed = 10
+
 var run = 1
 var h_acceleration = 18
 var direction = Vector3()
@@ -29,9 +31,12 @@ func _input(event):
 		head.rotation_degrees.y -= mouse_sensitivity*event.relative.x
 		head_x.rotation_degrees.x -= mouse_sensitivity*event.relative.y
 		head_x.rotation_degrees.x = clamp(head_x.rotation_degrees.x, -89, 89)
+	if event is InputEventKey and event.pressed:
+		if event.scancode == KEY_F:
+			FL.show()
+			FTimer.start()
 
 func _physics_process(delta):	
-	print(stamina)
 	var head_basis = head.get_global_transform().basis
 	direction = Vector3.ZERO
 	if Input.is_action_pressed("move_forward"):
@@ -44,7 +49,7 @@ func _physics_process(delta):
 		direction += head_basis.x
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
-	if Input.is_action_pressed("control") and stamina>0:
+	if Input.is_action_pressed("control") and stamina>0 and direction!=Vector3():
 		run = 2
 		stamina -= 2*stamina_regen
 	else:
@@ -93,3 +98,6 @@ func _on_Area_area_exited(body):
 	if(body.is_in_group("Terrain")):
 		print("Airborne")
 		grounded = false
+
+func _on_Timer_timeout():
+	FL.hide()

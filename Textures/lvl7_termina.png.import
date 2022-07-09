@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Plastic010_1K_Roughness.jpg-033f7d61b757606bfcd0254143c61768.s3tc.stex"
-path.etc2="res://.import/Plastic010_1K_Roughness.jpg-033f7d61b757606bfcd0254143c61768.etc2.stex"
+path.s3tc="res://.import/lvl7_termina.png-f7552f8d44eac7dd974248add9926661.s3tc.stex"
+path.etc2="res://.import/lvl7_termina.png-f7552f8d44eac7dd974248add9926661.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Plastic01/Plastic010_1K_Roughness.jpg"
-dest_files=[ "res://.import/Plastic010_1K_Roughness.jpg-033f7d61b757606bfcd0254143c61768.s3tc.stex", "res://.import/Plastic010_1K_Roughness.jpg-033f7d61b757606bfcd0254143c61768.etc2.stex" ]
+source_file="res://Textures/lvl7_termina.png"
+dest_files=[ "res://.import/lvl7_termina.png-f7552f8d44eac7dd974248add9926661.s3tc.stex", "res://.import/lvl7_termina.png-f7552f8d44eac7dd974248add9926661.etc2.stex" ]
 
 [params]
 
@@ -25,7 +25,7 @@ flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

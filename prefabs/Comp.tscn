@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://BlendSaves/Comp.obj" type="ArrayMesh" id=1]
+
+[node name="Comp" type="MeshInstance"]
+transform = Transform( 0.0499999, 0, 0, 0, 0.05, 0, 0, 0, 0.0499999, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -4.49286, 0.213276, 1.90281 )
+light_color = Color( 1, 0, 0, 1 )
+light_energy = 0.5
+omni_range = 1.0
+
+[node name="OmniLight2" type="OmniLight" parent="."]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -4.02187, 6.07479, 0 )
+light_color = Color( 0.14902, 1, 0, 1 )
+light_energy = 2.0
+omni_range = 4.0

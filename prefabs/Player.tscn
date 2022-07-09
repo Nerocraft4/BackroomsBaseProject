@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/footsteps.mp3" type="AudioStream" id=2]
@@ -74,9 +74,6 @@ void fragment (){
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
 
-[sub_resource type="BoxShape" id=8]
-extents = Vector3( 1.25156, 1.17277, 1.27775 )
-
 [node name="Player" type="KinematicBody" groups=["Player"]]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
 collision_layer = 7
@@ -149,8 +146,8 @@ transform = Transform( 0.3, 0, 0, 0, 0.297296, 0.0401855, 0, -0.0401855, 0.29729
 [node name="SpotLight" type="SpotLight" parent="Head/HeadRotationX"]
 transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0 )
 visible = false
-spot_range = 18.465
-spot_angle = 26.7187
+spot_range = 45.7141
+spot_angle = 34.2775
 
 [node name="WalkSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
@@ -174,10 +171,7 @@ autoplay = true
 stream = ExtResource( 5 )
 volume_db = -24.0
 
-[node name="Area" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.74321, 0 )
-visible = false
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
 
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51181, 0 )
-shape = SubResource( 8 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

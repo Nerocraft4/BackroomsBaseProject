@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Comp.obj-3a5ed2a306de7db9c4661ecd579bbf4a.mesh"
+
+[deps]
+
+files=[ "res://.import/Comp.obj-3a5ed2a306de7db9c4661ecd579bbf4a.mesh" ]
+
+source_file="res://BlendSaves/Comp.obj"
+dest_files=[ "res://.import/Comp.obj-3a5ed2a306de7db9c4661ecd579bbf4a.mesh", "res://.import/Comp.obj-3a5ed2a306de7db9c4661ecd579bbf4a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
