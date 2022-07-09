@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/footsteps.mp3" type="AudioStream" id=2]
@@ -6,9 +6,9 @@
 [ext_resource path="res://Sounds/Breathing.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/HeavyBreathing.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Sounds/FLCLICK.mp3" type="AudioStream" id=6]
-[ext_resource path="res://Fonts/new_dynamicfont.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Fonts/RobotoMono-Bold.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://prefabs/label_counter.gd" type="Script" id=9]
-[ext_resource path="res://prefabs/motiondetector.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Textures/beep.png" type="Texture" id=10]
 
 [sub_resource type="CapsuleMesh" id=1]
 mid_height = 3.0
@@ -48,15 +48,19 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ) ]
 }
 
+[sub_resource type="DynamicFont" id=11]
+size = 50
+font_data = ExtResource( 8 )
+
 [sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
 
 vec2 uv_curve(vec2 uv){
-	uv =(uv-0.5)*2.0;
-	uv.x *= 1.0+pow(abs(uv.y)/3.5,2.0);
-	uv.y *= 1.0+pow(abs(uv.x)/4.0,2.0);
-	uv = (uv/2.0)+0.5;
-	uv /= 1.2;
+//	uv =(uv-0.5)*2.0;
+//	uv.x *= 1.0+pow(abs(uv.y)/3.5,2.0);
+//	uv.y *= 1.0+pow(abs(uv.x)/4.0,2.0);
+//	uv = (uv/2.0)+0.5;
+//	uv /= 1.2;
 	return uv;
 }
 
@@ -73,6 +77,35 @@ void fragment (){
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "Flash"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpotLight:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.35 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SpotLight:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0208849, 0.15, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.03527 ),
+"update": 0,
+"values": [ 0.2, 3.0, 3.0, 0.0 ]
+}
 
 [node name="Player" type="KinematicBody" groups=["Player"]]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
@@ -109,23 +142,17 @@ anims/RESET = SubResource( 5 )
 [node name="CanvasLayer" type="CanvasLayer" parent="Head/HeadRotationX/Camera"]
 
 [node name="Label" type="Label" parent="Head/HeadRotationX/Camera/CanvasLayer"]
-margin_left = 1.0
-margin_top = 205.0
-margin_right = 204.0
-margin_bottom = 270.0
+margin_left = 26.0
+margin_top = 29.0
+margin_right = 356.0
+margin_bottom = 96.0
 rect_rotation = 1.0
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = SubResource( 11 )
 text = "#REC: 00:45"
 align = 1
 valign = 1
 uppercase = true
 script = ExtResource( 9 )
-
-[node name="ColorRect" type="ColorRect" parent="Head/HeadRotationX/Camera/CanvasLayer"]
-material = SubResource( 7 )
-anchor_right = 0.999
-anchor_bottom = 1.0
-margin_right = 0.919922
 
 [node name="ProgressBar" type="ProgressBar" parent="Head/HeadRotationX/Camera/CanvasLayer"]
 anchor_right = 1.0
@@ -137,17 +164,41 @@ margin_bottom = -150.0
 max_value = 1000.0
 step = 5.0
 
-[node name="Hand" type="Spatial" parent="Head/HeadRotationX"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266814, 0.170116, 0 )
+[node name="ColorRect" type="ColorRect" parent="Head/HeadRotationX/Camera/CanvasLayer"]
+material = SubResource( 7 )
+anchor_right = 0.999
+anchor_bottom = 1.0
+margin_right = 0.919922
 
-[node name="motiondetector" parent="Head/HeadRotationX/Hand" instance=ExtResource( 12 )]
-transform = Transform( 0.3, 0, 0, 0, 0.297296, 0.0401855, 0, -0.0401855, 0.297296, 1, -1.7, -2 )
+[node name="CenterContainer" type="CenterContainer" parent="Head/HeadRotationX/Camera/CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="Head/HeadRotationX/Camera/CanvasLayer/CenterContainer"]
+margin_left = 910.0
+margin_top = 490.0
+margin_right = 1010.0
+margin_bottom = 590.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 10 )
+
+[node name="Reach" type="RayCast" parent="Head/HeadRotationX/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -5 )
+
+[node name="Hand" type="Spatial" parent="Head/HeadRotationX"]
+transform = Transform( 0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, -1.616, -0.632, -2.4 )
 
 [node name="SpotLight" type="SpotLight" parent="Head/HeadRotationX"]
-transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0 )
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.28394, -0.424308, -2.52852 )
 visible = false
+light_energy = 0.0
 spot_range = 45.7141
 spot_angle = 34.2775
+
+[node name="FlashPlayer" type="AnimationPlayer" parent="Head/HeadRotationX"]
+anims/Flash = SubResource( 10 )
 
 [node name="WalkSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
@@ -171,7 +222,7 @@ autoplay = true
 stream = ExtResource( 5 )
 volume_db = -24.0
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
+[node name="CameraCooldown" type="Timer" parent="."]
+wait_time = 5.0
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="CameraCooldown" to="." method="_on_Timer_timeout"]

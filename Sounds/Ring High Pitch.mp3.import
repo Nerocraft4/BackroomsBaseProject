@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Ring High Pitch.mp3-ed3da8603fc8c48fd69409fe7e8498f5.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Ring High Pitch.mp3"
+dest_files=[ "res://.import/Ring High Pitch.mp3-ed3da8603fc8c48fd69409fe7e8498f5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

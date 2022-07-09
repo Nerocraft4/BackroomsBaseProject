@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Ambient Hum Pitched.mp3-65f999d4614a47760ff6104a14ead39d.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Ambient Hum Pitched.mp3"
+dest_files=[ "res://.import/Ambient Hum Pitched.mp3-65f999d4614a47760ff6104a14ead39d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -36,9 +36,16 @@ Baseplate project made in Godot for a Backrooms Game
  - Levels
    - Added baseplate of Level 7
    - Added new textures for levels
-   
+ 
  #### Alpha 1.1.2
  - Systems / Mechanics
    - Added Flash mechanic
    - Model of the "Flasher" tool to be added in 1.1.3
    - Added checkpoint idea (old computers). To be implemented
+
+ #### Alpha 1.1.3
+ - Added picking up / dropping items
+   - Pick up with E, drop with Q
+   - BUG: Dropping items makes them fall trough the world
+   - BUG: Player can sometimes fall trough the world when picking up / dropping items
+

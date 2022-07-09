@@ -7,9 +7,18 @@ var mouse_sensitivity = 0.10
 onready var head = $Head
 onready var head_x = $Head/HeadRotationX
 onready var anim_play = $Head/HeadRotationX/Camera/AnimationPlayer
+onready var anim_flash = $Head/HeadRotationX/FlashPlayer
 onready var bar = $Head/HeadRotationX/Camera/CanvasLayer/ProgressBar
 onready var FL = $Head/HeadRotationX/SpotLight
-onready var FTimer = $Timer
+
+onready var reach = $Head/HeadRotationX/Camera/Reach
+onready var hand = $Head/HeadRotationX/Hand
+
+onready var motiondetector = preload("res://prefabs/motiondetector.tscn")
+onready var flasher = preload("res://prefabs/Flasher.tscn")
+onready var flasherLR = preload("res://prefabs/FlasherLowRes.tscn")
+var tospawn = null
+var todrop = null
 
 export var max_stamina = 1000
 export var stamina = 100
@@ -33,8 +42,40 @@ func _input(event):
 		head_x.rotation_degrees.x = clamp(head_x.rotation_degrees.x, -89, 89)
 	if event is InputEventKey and event.pressed:
 		if event.scancode == KEY_F:
-			FL.show()
-			FTimer.start()
+			print("Flashing...")
+			anim_flash.play("Flash")
+
+func _process(delta):
+	if !tospawn:
+		if reach.is_colliding():
+			if reach.get_collider().get_name() == "FlasherLowRes":
+				tospawn = flasher.instance()
+			else:
+				tospawn = null
+		else:
+			tospawn = null
+			
+	if hand.get_child_count() > 0:
+		if hand.get_child(0).get_name() == "Flasher":
+				todrop = flasherLR.instance()
+	else:
+		todrop = null
+		
+	if Input.is_action_just_pressed("interact"):
+		if tospawn != null:
+			print("aquired item")
+			reach.get_collider().queue_free()
+			hand.add_child(tospawn)
+			tospawn.rotation = hand.rotation
+			
+	if Input.is_action_just_pressed("drop"):
+		if todrop != null:
+			print("dropped item")
+			get_parent().add_child(todrop)
+			todrop.global_transform = hand.global_transform
+			todrop.dropped = true
+			hand.get_child(0).queue_free()
+			tospawn=null
 
 func _physics_process(delta):	
 	var head_basis = head.get_global_transform().basis
@@ -99,5 +140,5 @@ func _on_Area_area_exited(body):
 		print("Airborne")
 		grounded = false
 
-func _on_Timer_timeout():
-	FL.hide()
+#func _on_Timer_timeout():
+#	FL.hide()

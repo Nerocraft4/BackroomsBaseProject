@@ -1,0 +1,29 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://prefabs/LowResDropItem.gd" type="Script" id=1]
+[ext_resource path="res://Materials/plastic.tres" type="Material" id=2]
+[ext_resource path="res://prefabs/Material_003.material" type="Material" id=3]
+[ext_resource path="res://BlendSaves/Camara.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://prefabs/Material_001.material" type="Material" id=5]
+[ext_resource path="res://prefabs/Material_004.material" type="Material" id=6]
+[ext_resource path="res://prefabs/Material_002.material" type="Material" id=7]
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.358524, 0.405247, 0.289701 )
+
+[node name="FlasherLowRes" type="RigidBody"]
+script = ExtResource( 1 )
+
+[node name="Camara" type="MeshInstance" parent="."]
+transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0 )
+mesh = ExtResource( 4 )
+material/0 = ExtResource( 7 )
+material/1 = ExtResource( 5 )
+material/2 = ExtResource( 2 )
+material/3 = ExtResource( 5 )
+material/4 = ExtResource( 6 )
+material/5 = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.0309163, 0 )
+shape = SubResource( 2 )

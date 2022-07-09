@@ -163,7 +163,7 @@ tracks/3/keys = {
 "values": [ 0.0, 0.4, 0.2, 0.4, 0.2, 1.0 ]
 }
 
-[node name="motiondetector" instance=ExtResource( 2 )]
+[node name="motiondetector" groups=["Item"] instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.7, -2 )
 script = ExtResource( 4 )
 
@@ -198,9 +198,11 @@ material/0 = SubResource( 3 )
 
 [node name="TurnOffDetector" type="AudioStreamPlayer" parent="." index="7"]
 stream = ExtResource( 7 )
+volume_db = -10.0
 
 [node name="TurnOnDetector" type="AudioStreamPlayer" parent="." index="8"]
 stream = ExtResource( 6 )
+volume_db = -10.0
 
 [node name="Scan" type="AudioStreamPlayer" parent="." index="9"]
 stream = ExtResource( 8 )
