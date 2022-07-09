@@ -37,3 +37,8 @@ Baseplate project made in Godot for a Backrooms Game
    - Added baseplate of Level 7
    - Added new textures for levels
    
+ #### Alpha 1.1.2
+ - Systems / Mechanics
+   - Added Flash mechanic
+   - Model of the "Flasher" tool to be added in 1.1.3
+   - Added checkpoint idea (old computers). To be implemented
