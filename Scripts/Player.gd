@@ -1,9 +1,12 @@
 extends KinematicBody
 
+#globals or something
+var save_filename = "user://save_game.save"
 var gravity = 9.8
 var grounded = true
 var mouse_sensitivity = 0.10
 
+#preloads
 onready var head = $Head
 onready var head_x = $Head/HeadRotationX
 onready var anim_play = $Head/HeadRotationX/Camera/AnimationPlayer
@@ -11,30 +14,43 @@ onready var anim_flash = $Head/HeadRotationX/FlashPlayer
 onready var bar = $Head/HeadRotationX/Camera/CanvasLayer/ProgressBar
 onready var FL = $Head/HeadRotationX/SpotLight
 
+#item holding
 onready var reach = $Head/HeadRotationX/Camera/Reach
 onready var lefthand = $Head/HeadRotationX/LeftHand
 onready var righthand = $Head/HeadRotationX/RightHand
 
+#items
 onready var motiondetector = preload("res://prefabs/motiondetector.tscn")
 onready var motionLR = preload("res://prefabs/MotionLowRes.tscn")
 onready var flasher = preload("res://prefabs/Flasher.tscn")
 onready var flasherLR = preload("res://prefabs/FlasherLowRes.tscn")
 var tospawn = null
 
+#physical stats
 export var max_stamina = 1000
 export var stamina = 100
 export var stamina_regen = 1
 export var speed = 10
-
 var run = 1
 var h_acceleration = 18
 var direction = Vector3()
 var h_velocity = Vector3()
 var movement = Vector3()
 
+#item stats
+var max_flashes = 20
+var flashes
+
+#macro stats
+export var secrets = 0
+var current_checkpoint
+
 func _ready():
+	var save_file = File.new()
+	save_file.open(save_filename,File.READ)
+	var node_data = parse_json(save_file.get_line())
+	load_save_stats(node_data)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	stamina = max_stamina
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -135,5 +151,36 @@ func _on_Area_area_exited(body):
 		print("Airborne")
 		grounded = false
 
-#func _on_Timer_timeout():
-#	FL.hide()
+func get_save_stats():
+	return {
+		'filename':get_filename(),
+		'current_scene':get_tree().current_scene.filename,
+		'xpos':global_transform.origin.x,
+		'ypos':global_transform.origin.y,
+		'zpos':global_transform.origin.z,
+		'checkpoint':current_checkpoint,
+		'stats':{
+			'stamina':stamina,
+			'flashes':flashes,
+			'secrets':secrets,
+			'hasFlasher':lefthand.get_child_count(),
+			'hasTracker':righthand.get_child_count()
+		}
+	}
+
+func load_save_stats(stats):
+	global_transform.origin = Vector3(stats.xpos,stats.ypos,stats.zpos)
+	stamina = stats.stats.stamina
+	flashes = stats.stats.flashes
+	secrets = stats.stats.secrets
+	current_checkpoint = stats.checkpoint
+	if stats.stats.hasFlasher==1:
+		tospawn = flasher.instance()
+		tospawn.rotation = lefthand.rotation
+		lefthand.add_child(tospawn)
+		tospawn = null
+	if stats.stats.hasTracker==1:
+		tospawn = motiondetector.instance()
+		tospawn.rotation = righthand.rotation
+		righthand.add_child(tospawn)
+		tospawn = null

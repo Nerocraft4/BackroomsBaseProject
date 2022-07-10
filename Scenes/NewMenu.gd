@@ -1,5 +1,9 @@
 extends Spatial
 
+#{"checkpoint":null,"current_scene":"res://Scenes/level0.tscn","filename":"res://prefabs/Player.tscn","stats":{"flashes":20,"hasFlasher":0,"hasTracker":0,"secrets":0,"stamina":1000},"xpos":0.000007,"ypos":0.219225,"zpos":-0.000008}
+
+var save_filename = "user://save_game.save"
+
 var state = 1
 onready var hover1 = $Comp/Viewport/hover1
 onready var hover2 = $Comp/Viewport/hover2
@@ -24,7 +28,7 @@ func _input(event):
 				state+=1
 		elif event.scancode == KEY_ENTER:
 			if state == 1:
-				get_tree().change_scene("res://Scenes/level7.tscn")
+				playGame()
 			elif state == 2:
 				pass
 			elif state == 3:
@@ -48,3 +52,33 @@ func _process(delta):
 func _on_Eject_pressed():
 	get_tree().quit()
 	pass # Replace with function body.
+
+func playGame():
+	var file2Check = File.new()
+	var doFileExists = file2Check.file_exists(save_filename)
+	if !doFileExists:
+		print("No save file. Writing initial data")
+		file2Check.open(save_filename,File.WRITE)
+		file2Check.store_line(to_json({
+		'filename':'res://prefabs/Player.tscn',
+		'current_scene':'res://Scenes/level0.tscn',
+		'xpos':0,
+		'ypos':0.2,
+		'zpos':0,
+		'checkpoint':0,
+		'stats':{
+			'stamina':1000,
+			'flashes':20,
+			'secrets':0,
+			'hasFlasher':0,
+			'hasTracker':0
+		}
+	}))
+		file2Check.close()
+		get_tree().change_scene("res://Scenes/level0.tscn")
+	else:
+		print("Found save file")
+		print("Loading...")
+		file2Check.open(save_filename,File.READ)
+		var data = parse_json(file2Check.get_line())
+		get_tree().change_scene(data.current_scene)

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ESISPS.mp3-29da80a2d192bb55d2653b6a17d0da69.mp3str"
+
+[deps]
+
+source_file="res://Sounds/ESISPS.mp3"
+dest_files=[ "res://.import/ESISPS.mp3-29da80a2d192bb55d2653b6a17d0da69.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

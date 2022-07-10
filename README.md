@@ -49,7 +49,7 @@ Baseplate project made in Godot for a Backrooms Game
    - BUG A1131: Dropping items makes them fall trough the world
    - BUG A1132: Player can sometimes fall trough the world when picking up / dropping items
 
- ### Alpha 1.1.4
+ #### Alpha 1.1.4
  - Systems / Mechanics
    - Removed the ability to drop items
  - Bugs
@@ -58,4 +58,8 @@ Baseplate project made in Godot for a Backrooms Game
  - Gameplay 
    - Main menu revamped
      - "OPTN" button (options) has no functionality yet
- 
+ #### Alpha 1.1.5
+ - Systems / Mechanics
+   - Created saving / loading system. Not fully implemented in-game yet, but the code is there
+   - Added "Secrets". They will be collectibles that unlock different looks in the main menu.
+

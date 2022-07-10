@@ -107,7 +107,7 @@ tracks/1/keys = {
 "values": [ 0.2, 3.0, 3.0, 0.0 ]
 }
 
-[node name="Player" type="KinematicBody" groups=["Player"]]
+[node name="Player" type="KinematicBody" groups=["Player", "Saved"]]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
 collision_layer = 7
 script = ExtResource( 1 )
