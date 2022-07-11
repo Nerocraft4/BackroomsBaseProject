@@ -1,0 +1,5 @@
+#gitignore file to not track useless stuff
+**/.import
+project.godot
+default_env.tres
+export_presets.cfg
