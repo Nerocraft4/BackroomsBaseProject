@@ -13,8 +13,6 @@ var Map
 
 func _ready():
 	Map = readyMap(scalarMapSize)
-	for i in range(2*scalarMapSize+1):
-		print(Map[i])
 	for i in range(scalarMapSize*2+1):
 		for j in range(scalarMapSize*2+1):
 			makeChunkCeiling(i-scalarMapSize,j-scalarMapSize)

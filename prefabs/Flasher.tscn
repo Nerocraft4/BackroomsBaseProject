@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://BlendSaves/Camara.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Fonts/RobotoMono-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://prefabs/Flasher.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=4]
 size = 300
@@ -16,8 +17,38 @@ viewport_path = NodePath("Viewport")
 resource_local_to_scene = true
 albedo_texture = SubResource( 2 )
 
+[sub_resource type="Animation" id=5]
+resource_name = "Flash"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpotLight:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.35 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SpotLight:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0208849, 0.15, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.03527 ),
+"update": 0,
+"values": [ 0.2, 3.0, 3.0, 0.0 ]
+}
+
 [node name="Flasher" type="Spatial" groups=["Item"]]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+script = ExtResource( 3 )
 
 [node name="Camara" type="MeshInstance" parent="."]
 transform = Transform( -8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0 )
@@ -66,3 +97,12 @@ uppercase = true
 transform = Transform( -0.2, -8.74228e-08, 6.49633e-16, 0, -4.37114e-08, -0.17, 1.74846e-08, -1, 7.43094e-09, 0, 0.379, -0.192 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 3 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00833817, 0.347484, 0.526671 )
+light_energy = 0.2
+spot_range = 18.4739
+spot_angle = 27.3538
+
+[node name="FlashPlayer" type="AnimationPlayer" parent="."]
+anims/Flash = SubResource( 5 )

@@ -62,4 +62,15 @@ Baseplate project made in Godot for a Backrooms Game
  - Systems / Mechanics
    - Created saving / loading system. Not fully implemented in-game yet, but the code is there
    - Added "Secrets". They will be collectibles that unlock different looks in the main menu.
+ - Bugs:
+   - A1151: when acquired, motion tracker is up but off. It should be on.
+   - A1152: motion tracker can be activated from main menu.
+ ### Alpha 1.2 (stable)
+ - Systems / Mechanics
+   - Saving / loading now works in-game. Checkpoint's model will need a rework.
+   - Flasher now visually updates its charges.
+ - Bugs:
+   - Fixed BUG A1151
+   - Fixed BUG A1152
+   - Found BUG A121: On load, player's rotation doesn't get saved and updated. This makes them face weird angles.
 

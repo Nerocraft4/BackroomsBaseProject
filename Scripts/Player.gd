@@ -10,9 +10,10 @@ var mouse_sensitivity = 0.10
 onready var head = $Head
 onready var head_x = $Head/HeadRotationX
 onready var anim_play = $Head/HeadRotationX/Camera/AnimationPlayer
-onready var anim_flash = $Head/HeadRotationX/FlashPlayer
 onready var bar = $Head/HeadRotationX/Camera/CanvasLayer/ProgressBar
 onready var FL = $Head/HeadRotationX/SpotLight
+
+#scene preloads (main menu and death screen ig?)
 
 #item holding
 onready var reach = $Head/HeadRotationX/Camera/Reach
@@ -58,9 +59,12 @@ func _input(event):
 		head_x.rotation_degrees.x -= mouse_sensitivity*event.relative.y
 		head_x.rotation_degrees.x = clamp(head_x.rotation_degrees.x, -89, 89)
 	if event is InputEventKey and event.pressed:
-		if event.scancode == KEY_F:
-			print("Flashing...")
-			anim_flash.play("Flash")
+		if lefthand.get_child_count()==1 and event.scancode == KEY_F and flashes > 0:
+			flashes -= 1
+			lefthand.get_child(0).set_flashes(flashes,max_flashes)
+			lefthand.get_child(0).flash()
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().change_scene("res://Scenes/NewMenu.tscn")
 
 func _process(delta):
 	if !tospawn:
@@ -69,6 +73,8 @@ func _process(delta):
 				tospawn = flasher.instance()
 			elif reach.get_collider().get_name() == "MotionLowRes":
 				tospawn = motiondetector.instance()
+			elif reach.get_collider().get_name() == "Checkpoint":
+				SaveState.save_game()
 			else:
 				tospawn = null
 		else:
@@ -99,8 +105,6 @@ func _physics_process(delta):
 		direction -= head_basis.x
 	elif Input.is_action_pressed("move_right"):
 		direction += head_basis.x
-	if Input.is_action_pressed("ui_cancel"):
-		get_tree().quit()
 	if Input.is_action_pressed("control") and stamina>0 and direction!=Vector3():
 		run = 2
 		stamina -= 2*stamina_regen
@@ -179,8 +183,11 @@ func load_save_stats(stats):
 		tospawn.rotation = lefthand.rotation
 		lefthand.add_child(tospawn)
 		tospawn = null
+		lefthand.get_child(0).set_flashes(flashes,max_flashes)
 	if stats.stats.hasTracker==1:
 		tospawn = motiondetector.instance()
 		tospawn.rotation = righthand.rotation
 		righthand.add_child(tospawn)
+		righthand.get_child(0).onload_with_player()
 		tospawn = null
+	

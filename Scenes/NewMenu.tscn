@@ -30,7 +30,7 @@ ambient_light_sky_contribution = 0.0
 [sub_resource type="PlaneMesh" id=5]
 
 [sub_resource type="ViewportTexture" id=6]
-viewport_path = NodePath("Viewport")
+viewport_path = NodePath("Spatial/motiondetector/Viewport")
 
 [sub_resource type="SpatialMaterial" id=7]
 resource_local_to_scene = true
@@ -137,7 +137,6 @@ transform = Transform( -0.147011, 0, 0.261511, 0, 0.3, 0, -0.261511, 0, -0.14701
 
 [node name="Spatial" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.159941, 0.0304848, -0.439173 )
-visible = false
 
 [node name="motiondetector" parent="Spatial" instance=ExtResource( 11 )]
 transform = Transform( -0.0287661, 0, -0.0957732, 0, 0.1, 0, 0.0957732, 0, -0.0287661, 0, 0, 0 )

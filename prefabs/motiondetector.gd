@@ -14,7 +14,7 @@ func _ready():
 
 func _input(event):
 	if event is InputEventKey:
-		if event.scancode == KEY_SPACE and event.pressed and scanning==false:
+		if get_parent().name == "RightHand" and event.scancode == KEY_SPACE and event.pressed and scanning==false:
 			$AnimationPlayer.play("Raise")
 			scanning = true
 			$TurnOnDetector.play()
@@ -24,3 +24,7 @@ func _input(event):
 			scanning = false
 			$TurnOffDetector.play()
 			$Scan.stop()
+
+func onload_with_player():
+	scanning=true
+	$AnimationPlayer.play("Raise")
