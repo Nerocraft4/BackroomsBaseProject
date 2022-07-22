@@ -31,7 +31,7 @@ func move_to_target():
 		for index in get_slide_count():
 			var col = get_slide_collision(index)
 			if col.collider.is_in_group("Player"):
-				get_tree().change_scene("res://Scenes/Menu.tscn")
+				get_tree().change_scene("res://Scenes/NewMenu.tscn")
 
 func get_target_path(target_pos):
 	path = nav.get_simple_path(global_transform.origin, target_pos)
