@@ -1,6 +1,7 @@
 # Credits
 
 ### Models
+Sorted by time of appearance in game:
 
 "Sci-fi Computer" (https://skfb.ly/6RRBn) by Render Blue is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 

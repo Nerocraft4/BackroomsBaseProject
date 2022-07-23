@@ -146,6 +146,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="TextureRect" type="TextureRect" parent="Head/HeadRotationX/Camera/CanvasLayer/CenterContainer"]
+visible = false
 margin_left = 910.0
 margin_top = 490.0
 margin_right = 1010.0

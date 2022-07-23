@@ -86,3 +86,9 @@ Baseplate project made in Godot for a Backrooms Game
      - To keep track of player's camera time
  - Bugs:
    - Found BUG A1211: Items respawn when reloading level, but the player still has them in their hand
+
+ #### Alpha 1.2.2
+ - Levels
+   - Added Level14, entire new level dungeon-like. Added Collisions, they should be fine.
+ - (Debug: added debug mode, so player doesn't get automatically tp'd to checkpoints)
+

@@ -46,11 +46,16 @@ var flashes
 export var secrets = 0
 var current_checkpoint
 
+#debug related stats
+export var debug = false
+
 func _ready():
-	var save_file = File.new()
-	save_file.open(save_filename,File.READ)
-	var node_data = parse_json(save_file.get_line())
-	load_save_stats(node_data)
+	#REMOVE IN STABLE / FINAL RELEASE
+	if !debug:
+		var save_file = File.new()
+		save_file.open(save_filename,File.READ)
+		var node_data = parse_json(save_file.get_line())
+		load_save_stats(node_data)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
