@@ -135,6 +135,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -2, 0, 1, -8.74228e-08, 0, 4.53
 shape = SubResource( 18 )
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

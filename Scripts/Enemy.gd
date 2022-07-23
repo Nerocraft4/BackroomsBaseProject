@@ -1,7 +1,7 @@
 extends KinematicBody
 
 var rng = RandomNumberGenerator.new()
-var speed = 6
+var speed = 7
 var direction = Vector3.ZERO
 var foundPlayer = null
 var movement = Vector3()

@@ -14,6 +14,10 @@ func _on_VideoPlayer_finished():
 	playGame()
 	pass # Replace with function body.
 
+func _input(event):
+	if Input.is_action_pressed("ui_accept"):
+		playGame()
+
 func playGame():
 	var file2Check = File.new()
 	var doFileExists = file2Check.file_exists(save_filename)

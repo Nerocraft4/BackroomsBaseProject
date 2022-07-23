@@ -111,10 +111,17 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("move_right"):
 		direction += head_basis.x
 	if Input.is_action_pressed("control") and stamina>0 and direction!=Vector3():
-		run = 2
-		stamina -= 2*stamina_regen
+		if righthand.get_child_count()==1 and righthand.get_child(0).scanning:
+			run = 0.5
+			stamina += stamina_regen
+		else:
+			run = 2
+			stamina -= 2*stamina_regen
 	else:
 		run = 1
+		if righthand.get_child_count()==1:
+			if righthand.get_child(0).scanning:
+				run = 0.5
 		if stamina<max_stamina:
 			stamina += 1*stamina_regen
 	bar.value = stamina
@@ -130,7 +137,7 @@ func _physics_process(delta):
 
 	if direction != Vector3():
 		anim_play.play("HeadBob")
-		if run!=1:
+		if run==2:
 			if !$RunSound.playing:
 				$RunSound.play()
 				$WalkSound.stop()
