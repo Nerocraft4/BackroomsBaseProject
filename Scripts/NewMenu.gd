@@ -1,6 +1,5 @@
 extends Spatial
-
-#{"checkpoint":null,"current_scene":"res://Scenes/level0.tscn","filename":"res://prefabs/Player.tscn","stats":{"flashes":20,"hasFlasher":0,"hasTracker":0,"secrets":0,"stamina":1000},"xpos":0.000007,"ypos":0.219225,"zpos":-0.000008}
+#{"checkpoint":null,"current_scene":"res://Scenes/level0.tscn","filename":"res://prefabs/Player.tscn","stats":{"flashes":20,"hasFlasher":0,"hasTracker":0,"secrets":0,"stamina":1000},"xpos":0.000007,"ypos":0.219225,"zpos":-0.000008,"yrot":0,"xrot":0}
 
 var state = 1
 onready var hover1 = $Comp/Viewport/hover1

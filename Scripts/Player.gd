@@ -69,6 +69,7 @@ func _input(event):
 			lefthand.get_child(0).set_flashes(flashes,max_flashes)
 			lefthand.get_child(0).flash()
 	if Input.is_action_pressed("ui_cancel"):
+		#To be changed to an "options" popup, then from there to the Main menu
 		get_tree().change_scene("res://Scenes/NewMenu.tscn")
 
 func _process(delta):
@@ -174,6 +175,8 @@ func get_save_stats():
 		'xpos':global_transform.origin.x,
 		'ypos':global_transform.origin.y,
 		'zpos':global_transform.origin.z,
+		'yrot':head.rotation_degrees.y,
+		'xrot':head_x.rotation_degrees.x,
 		'checkpoint':current_checkpoint,
 		'stats':{
 			'stamina':stamina,
@@ -186,6 +189,8 @@ func get_save_stats():
 
 func load_save_stats(stats):
 	global_transform.origin = Vector3(stats.xpos,stats.ypos,stats.zpos)
+	head.rotation_degrees.y = stats.yrot
+	head_x.rotation_degrees.x = stats.xrot
 	stamina = stats.stats.stamina
 	flashes = stats.stats.flashes
 	secrets = stats.stats.secrets
