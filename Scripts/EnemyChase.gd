@@ -1,6 +1,6 @@
 extends KinematicBody
 
-export var speed = 9
+export var speed = 10
 
 var path = []
 var curr_path_idx = 0

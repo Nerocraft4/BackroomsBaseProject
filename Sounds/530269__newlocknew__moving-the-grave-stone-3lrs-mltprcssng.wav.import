@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/530269__newlocknew__moving-the-grave-stone-3lrs-mltprcssng.wav-12cddff90b1fe0ab94fb79aef2454ae3.sample"
+
+[deps]
+
+source_file="res://Sounds/530269__newlocknew__moving-the-grave-stone-3lrs-mltprcssng.wav"
+dest_files=[ "res://.import/530269__newlocknew__moving-the-grave-stone-3lrs-mltprcssng.wav-12cddff90b1fe0ab94fb79aef2454ae3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

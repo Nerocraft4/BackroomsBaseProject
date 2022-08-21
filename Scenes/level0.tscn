@@ -74,10 +74,6 @@ environment = SubResource( 3 )
 [node name="Lights" type="Spatial" parent="."]
 script = ExtResource( 9 )
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
-
 [node name="Enemy" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, -0.811885, -72.0124 )
 
@@ -6347,5 +6343,3 @@ shape = SubResource( 8 )
 [node name="MeshInstance" type="MeshInstance" parent="Checkpoint"]
 mesh = SubResource( 9 )
 material/0 = null
-
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -27,9 +27,13 @@ onready var flasher = preload("res://prefabs/Flasher.tscn")
 onready var flasherLR = preload("res://prefabs/FlasherLowRes.tscn")
 var tospawn = null
 
+#vision
+onready var sight = $Head/HeadRotationX/Camera/Sight
+var looking_at = null
+
 #physical stats
 export var max_stamina = 1000
-export var stamina = 100
+export var stamina = 1000
 export var stamina_regen = 1
 export var speed = 10
 var run = 1
@@ -40,7 +44,7 @@ var movement = Vector3()
 
 #item stats
 var max_flashes = 20
-var flashes
+var flashes = 20
 
 #macro stats
 export var secrets = 0
@@ -73,32 +77,24 @@ func _input(event):
 		get_tree().change_scene("res://Scenes/NewMenu.tscn")
 
 func _process(delta):
-	if !tospawn:
-		if reach.is_colliding():
+	if sight.is_colliding():
+		looking_at = sight.get_collider().get_name()
+	
+		if Input.is_action_just_pressed("interact") and reach.is_colliding():
 			if reach.get_collider().get_name() == "FlasherLowRes":
 				tospawn = flasher.instance()
-			elif reach.get_collider().get_name() == "MotionLowRes":
-				tospawn = motiondetector.instance()
-			elif reach.get_collider().get_name() == "Checkpoint":
-				SaveState.save_game()
-			else:
-				tospawn = null
-		else:
-			tospawn = null
-		
-	if Input.is_action_just_pressed("interact"):
-		if tospawn != null:
-			print("aquired item")
-			reach.get_collider().queue_free()
-			if tospawn.get_name() == "Flasher":
 				tospawn.rotation = lefthand.rotation
 				lefthand.add_child(tospawn)
-				tospawn = null
-			else:
-				print("Added MotionDetector")
+				reach.get_collider().queue_free()
+			elif reach.get_collider().get_name() == "MotionLowRes":
+				tospawn = motiondetector.instance()
 				tospawn.rotation = righthand.rotation
 				righthand.add_child(tospawn)
-				tospawn = null
+				reach.get_collider().queue_free()
+			elif reach.get_collider().get_name() == "Checkpoint":
+				SaveState.save_game()
+		else:
+			tospawn = null
 
 func _physics_process(delta):	
 	var head_basis = head.get_global_transform().basis
