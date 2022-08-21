@@ -7,7 +7,7 @@
 [ext_resource path="res://Sounds/HeavyBreathing.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Sounds/FLCLICK.mp3" type="AudioStream" id=6]
 [ext_resource path="res://Fonts/RobotoMono-Bold.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://prefabs/label_counter.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/label_counter.gd" type="Script" id=9]
 [ext_resource path="res://Textures/beep.png" type="Texture" id=10]
 
 [sub_resource type="CapsuleMesh" id=1]
@@ -146,6 +146,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="TextureRect" type="TextureRect" parent="Head/HeadRotationX/Camera/CanvasLayer/CenterContainer"]
+visible = false
 margin_left = 910.0
 margin_top = 490.0
 margin_right = 1010.0
@@ -157,6 +158,10 @@ texture = ExtResource( 10 )
 [node name="Reach" type="RayCast" parent="Head/HeadRotationX/Camera"]
 enabled = true
 cast_to = Vector3( 0, 0, -5 )
+
+[node name="Sight" type="RayCast" parent="Head/HeadRotationX/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -8 )
 
 [node name="LeftHand" type="Spatial" parent="Head/HeadRotationX"]
 transform = Transform( 0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, -1.616, -0.632, -2.4 )

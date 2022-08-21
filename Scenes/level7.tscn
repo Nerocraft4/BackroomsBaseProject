@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://BlendSaves/level7.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Materials/LightConcrete.tres" type="Material" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://prefabs/Comp.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Textures/lvl7_termina.png" type="Texture" id=7]
 [ext_resource path="res://Sounds/Ring High Pitch.mp3" type="AudioStream" id=8]
+[ext_resource path="res://prefabs/lamp.tscn" type="PackedScene" id=9]
 [ext_resource path="res://prefabs/FlasherLowRes.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConcavePolygonShape" id=2]
@@ -116,6 +117,7 @@ environment = SubResource( 1 )
 [node name="Player" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.859516, 0.624274, 8.95437 )
 speed = 3
+debug = true
 
 [node name="Comp" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.0341506, 0.00915063, 0.0353553, -0.0129409, 0.0482963, 0, -0.0341506, -0.00915063, 0.0353553, 1.36782, 0, -5.3811 )
@@ -133,4 +135,19 @@ volume_db = 10.0
 autoplay = true
 
 [node name="FlasherLowRes" parent="." instance=ExtResource( 10 )]
-transform = Transform( -0.5, -0.866025, 4.37114e-08, -2.18557e-08, -3.78552e-08, -1, 0.866025, -0.5, -5.21253e-16, 0.678651, 0.568866, -5.40935 )
+transform = Transform( -0.5, -0.866025, 4.37114e-08, -2.18557e-08, -3.78552e-08, -1, 0.866025, -0.5, -5.21253e-16, 0.678651, 0.12605, -5.40935 )
+
+[node name="lamp" parent="." instance=ExtResource( 9 )]
+transform = Transform( -1.5299e-09, -0.035, -1.5299e-09, 0, -1.5299e-09, 0.035, -0.035, 1.5299e-09, 6.6874e-17, 18.0511, 0.129434, 4 )
+
+[node name="lamp2" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1.5299e-09, 1.33748e-16, -0.035, 3.0598e-09, -0.035, 0, -0.035, -3.0598e-09, -1.5299e-09, 32.6045, 0.00595367, 4 )
+
+[node name="lamp5" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1.5299e-09, 1.33748e-16, -0.035, 3.0598e-09, -0.035, 0, -0.035, -3.0598e-09, -1.5299e-09, 63.793, 0.00595367, 4 )
+
+[node name="lamp3" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.0349848, 3.05847e-09, 0.00103222, 3.0598e-09, -0.035, 0, 0.00103222, 9.02392e-11, -0.0349848, 48.0331, 0.00595367, 19.1498 )
+
+[node name="lamp4" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.0349848, 3.05847e-09, 0.00103222, 3.0598e-09, -0.035, 0, 0.00103222, 9.02392e-11, -0.0349848, 48.0331, 0.00595367, -11.1394 )

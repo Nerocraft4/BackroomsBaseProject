@@ -23,16 +23,6 @@ func first_save():
 	save_file.store_line()
 	save_file.close()
 
-func _input(event):
-#	if event is InputEventKey and event.pressed:
-##		if event.scancode == KEY_S:
-##			print("saving game")
-##			save_game()
-#		if event.scancode == KEY_L:
-#			print("loading game")
-#			load_game()
-	pass
-
 func load_game():
 	var save_file = File.new()
 	if not save_file.file_exists(save_filename):

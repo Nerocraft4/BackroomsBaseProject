@@ -74,3 +74,21 @@ Baseplate project made in Godot for a Backrooms Game
    - Fixed BUG A1152
    - Found BUG A121: On load, player's rotation doesn't get saved and updated. This makes them face weird angles.
 
+ #### Alpha 1.2.1
+ - Gameplay
+   - Added new introductory video / analog horror styled
+ - Levels
+   - Added new materials and objects for levels, still unused
+ - Incoming Changes:
+   - Enemy Balance / Rework, they are too easy to run away from
+   - Loading file needs more information
+     - To not repeat cinematic every time (first time play or not?)
+     - To keep track of player's camera time
+ - Bugs:
+   - Found BUG A1211: Items respawn when reloading level, but the player still has them in their hand
+
+ #### Alpha 1.2.2
+ - Levels
+   - Added Level14, entire new level dungeon-like. Added Collisions, they should be fine.
+ - (Debug: added debug mode, so player doesn't get automatically tp'd to checkpoints)
+

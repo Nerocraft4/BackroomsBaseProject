@@ -5,7 +5,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_Start_pressed():
-	get_tree().change_scene("res://Scenes/AdvTest.tscn")
+	get_tree().change_scene("res://Scenes/Level0.tscn")
 
 
 func _on_Quit_pressed():

@@ -27,9 +27,13 @@ onready var flasher = preload("res://prefabs/Flasher.tscn")
 onready var flasherLR = preload("res://prefabs/FlasherLowRes.tscn")
 var tospawn = null
 
+#vision
+onready var sight = $Head/HeadRotationX/Camera/Sight
+var looking_at = null
+
 #physical stats
 export var max_stamina = 1000
-export var stamina = 100
+export var stamina = 1000
 export var stamina_regen = 1
 export var speed = 10
 var run = 1
@@ -40,17 +44,22 @@ var movement = Vector3()
 
 #item stats
 var max_flashes = 20
-var flashes
+var flashes = 20
 
 #macro stats
 export var secrets = 0
 var current_checkpoint
 
+#debug related stats
+export var debug = false
+
 func _ready():
-	var save_file = File.new()
-	save_file.open(save_filename,File.READ)
-	var node_data = parse_json(save_file.get_line())
-	load_save_stats(node_data)
+	#REMOVE IN STABLE / FINAL RELEASE
+	if !debug:
+		var save_file = File.new()
+		save_file.open(save_filename,File.READ)
+		var node_data = parse_json(save_file.get_line())
+		load_save_stats(node_data)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
@@ -64,35 +73,28 @@ func _input(event):
 			lefthand.get_child(0).set_flashes(flashes,max_flashes)
 			lefthand.get_child(0).flash()
 	if Input.is_action_pressed("ui_cancel"):
+		#To be changed to an "options" popup, then from there to the Main menu
 		get_tree().change_scene("res://Scenes/NewMenu.tscn")
 
 func _process(delta):
-	if !tospawn:
-		if reach.is_colliding():
+	if sight.is_colliding():
+		looking_at = sight.get_collider().get_name()
+	
+		if Input.is_action_just_pressed("interact") and reach.is_colliding():
 			if reach.get_collider().get_name() == "FlasherLowRes":
 				tospawn = flasher.instance()
-			elif reach.get_collider().get_name() == "MotionLowRes":
-				tospawn = motiondetector.instance()
-			elif reach.get_collider().get_name() == "Checkpoint":
-				SaveState.save_game()
-			else:
-				tospawn = null
-		else:
-			tospawn = null
-		
-	if Input.is_action_just_pressed("interact"):
-		if tospawn != null:
-			print("aquired item")
-			reach.get_collider().queue_free()
-			if tospawn.get_name() == "Flasher":
 				tospawn.rotation = lefthand.rotation
 				lefthand.add_child(tospawn)
-				tospawn = null
-			else:
-				print("Added MotionDetector")
+				reach.get_collider().queue_free()
+			elif reach.get_collider().get_name() == "MotionLowRes":
+				tospawn = motiondetector.instance()
 				tospawn.rotation = righthand.rotation
 				righthand.add_child(tospawn)
-				tospawn = null
+				reach.get_collider().queue_free()
+			elif reach.get_collider().get_name() == "Checkpoint":
+				SaveState.save_game()
+		else:
+			tospawn = null
 
 func _physics_process(delta):	
 	var head_basis = head.get_global_transform().basis
@@ -106,10 +108,17 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("move_right"):
 		direction += head_basis.x
 	if Input.is_action_pressed("control") and stamina>0 and direction!=Vector3():
-		run = 2
-		stamina -= 2*stamina_regen
+		if righthand.get_child_count()==1 and righthand.get_child(0).scanning:
+			run = 0.5
+			stamina += stamina_regen
+		else:
+			run = 2
+			stamina -= 2*stamina_regen
 	else:
 		run = 1
+		if righthand.get_child_count()==1:
+			if righthand.get_child(0).scanning:
+				run = 0.5
 		if stamina<max_stamina:
 			stamina += 1*stamina_regen
 	bar.value = stamina
@@ -125,7 +134,7 @@ func _physics_process(delta):
 
 	if direction != Vector3():
 		anim_play.play("HeadBob")
-		if run!=1:
+		if run==2:
 			if !$RunSound.playing:
 				$RunSound.play()
 				$WalkSound.stop()
@@ -162,6 +171,8 @@ func get_save_stats():
 		'xpos':global_transform.origin.x,
 		'ypos':global_transform.origin.y,
 		'zpos':global_transform.origin.z,
+		'yrot':head.rotation_degrees.y,
+		'xrot':head_x.rotation_degrees.x,
 		'checkpoint':current_checkpoint,
 		'stats':{
 			'stamina':stamina,
@@ -174,6 +185,8 @@ func get_save_stats():
 
 func load_save_stats(stats):
 	global_transform.origin = Vector3(stats.xpos,stats.ypos,stats.zpos)
+	head.rotation_degrees.y = stats.yrot
+	head_x.rotation_degrees.x = stats.xrot
 	stamina = stats.stats.stamina
 	flashes = stats.stats.flashes
 	secrets = stats.stats.secrets

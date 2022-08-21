@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/EnemyStatue.gd" type="Script" id=1]
+[ext_resource path="res://prefabs/modular_dungeon/brickwall1.material" type="Material" id=2]
+[ext_resource path="res://Sounds/530269__newlocknew__moving-the-grave-stone-3lrs-mltprcssng.wav" type="AudioStream" id=3]
+
+[sub_resource type="CylinderShape" id=169]
+
+[sub_resource type="CubeMesh" id=172]
+material = ExtResource( 2 )
+size = Vector3( 1.5, 1.9, 1.5 )
+
+[sub_resource type="CubeMesh" id=173]
+material = ExtResource( 2 )
+
+[sub_resource type="CylinderShape" id=171]
+radius = 14.113
+
+[node name="EnemyStatue" type="KinematicBody"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.52, 0.006 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 169 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0.75, 0 )
+mesh = SubResource( 172 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, -2.5, 0 )
+mesh = SubResource( 173 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 4, 0 )
+mesh = SubResource( 173 )
+material/0 = null
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 171 )
+
+[node name="Drag" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 3 )
+unit_db = 12.0
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
