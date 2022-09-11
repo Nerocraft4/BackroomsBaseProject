@@ -92,3 +92,9 @@ Baseplate project made in Godot for a Backrooms Game
    - Added Level14, entire new level dungeon-like. Added Collisions, they should be fine.
  - (Debug: added debug mode, so player doesn't get automatically tp'd to checkpoints)
 
+ #### Alpha 1.2.3
+ - Levels
+   - Added Level3, the poolrooms. Still incomplete but most assets are ready.
+ - Gameplay:
+   - Added EnemySwim, which basically chases the player if they fall into the water. Will probably add a few ladders so the player has an opportunity to be saved. Will probably make the enemy faster.
+
