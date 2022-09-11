@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/manic-whistle-32592.mp3-1f7235619d6e383f185067681901b013.mp3str"
+
+[deps]
+
+source_file="res://Sounds/manic-whistle-32592.mp3"
+dest_files=[ "res://.import/manic-whistle-32592.mp3-1f7235619d6e383f185067681901b013.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

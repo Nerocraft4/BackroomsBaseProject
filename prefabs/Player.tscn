@@ -6,9 +6,9 @@
 [ext_resource path="res://Sounds/Breathing.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/HeavyBreathing.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Sounds/FLCLICK.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Textures/crshair.png" type="Texture" id=7]
 [ext_resource path="res://Fonts/RobotoMono-Bold.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Scripts/label_counter.gd" type="Script" id=9]
-[ext_resource path="res://Textures/beep.png" type="Texture" id=10]
 
 [sub_resource type="CapsuleMesh" id=1]
 mid_height = 3.0
@@ -141,19 +141,16 @@ anchor_right = 0.999
 anchor_bottom = 1.0
 margin_right = 0.919922
 
-[node name="CenterContainer" type="CenterContainer" parent="Head/HeadRotationX/Camera/CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="TextureRect" type="TextureRect" parent="Head/HeadRotationX/Camera/CanvasLayer/CenterContainer"]
-visible = false
-margin_left = 910.0
-margin_top = 490.0
-margin_right = 1010.0
-margin_bottom = 590.0
+[node name="TextureRect" type="TextureRect" parent="Head/HeadRotationX/Camera/CanvasLayer"]
+margin_left = 929.0
+margin_top = 508.5
+margin_right = 1032.5
+margin_bottom = 613.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource( 10 )
+rect_scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 7 )
+stretch_mode = 1
 
 [node name="Reach" type="RayCast" parent="Head/HeadRotationX/Camera"]
 enabled = true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/goresplat-7088.mp3-ce3cdd2f3294f9a3a3fd3b9a0aac8f2d.mp3str"
+
+[deps]
+
+source_file="res://Sounds/goresplat-7088.mp3"
+dest_files=[ "res://.import/goresplat-7088.mp3-ce3cdd2f3294f9a3a3fd3b9a0aac8f2d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

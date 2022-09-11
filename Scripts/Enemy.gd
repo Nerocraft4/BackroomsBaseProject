@@ -30,7 +30,7 @@ func _physics_process(delta):
 		for index in get_slide_count():
 			var col = get_slide_collision(index)
 			if col.collider.is_in_group("Player"):
-				get_tree().change_scene("res://Scenes/NewMenu.tscn")
+				get_tree().change_scene("res://Scenes/Death.tscn")
 		var ndir = norm(direction)
 		#adjustment_saturation set_adjustment_saturation(value) get_adjustment_saturation()
 #		env.set_adjustment_saturation(1+300/(ndir))

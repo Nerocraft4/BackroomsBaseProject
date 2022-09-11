@@ -26,7 +26,7 @@ func playGame():
 		file2Check.open(save_filename,File.WRITE)
 		file2Check.store_line(to_json({
 		'filename':'res://prefabs/Player.tscn',
-		'current_scene':'res://Scenes/level0.tscn',
+		'current_scene':'res://Scenes/level7.tscn',
 		'xpos':0,
 		'ypos':0.2,
 		'zpos':0,
@@ -40,7 +40,7 @@ func playGame():
 		}
 	}))
 		file2Check.close()
-		get_tree().change_scene("res://Scenes/level0.tscn")
+		get_tree().change_scene("res://Scenes/level7.tscn")
 	else:
 		print("Found save file")
 		print("Loading...")

@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Fonts/RobotoMono-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/new_dynamicfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scenes/Death.gd" type="Script" id=3]
+[ext_resource path="res://Sounds/goresplat-7088.mp3" type="AudioStream" id=4]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0, 0, 0, 1, 0.285156, 0.133667, 0.133667, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 1920
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="Theme" id=5]
+default_font = ExtResource( 2 )
+
+[sub_resource type="Theme" id=6]
+default_font = ExtResource( 2 )
+
+[sub_resource type="Theme" id=7]
+default_font = ExtResource( 2 )
+
+[node name="Death" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -6.0
+margin_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 1920, 1080 )
+texture = SubResource( 2 )
+expand = true
+
+[node name="EndOfTape" type="RichTextLabel" parent="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 476.0
+margin_bottom = -467.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "[center][shake level=20 rate=50] End of tape"
+text = " End of tape"
+
+[node name="Hint" type="RichTextLabel" parent="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 621.0
+margin_bottom = -322.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource( 5 )
+bbcode_enabled = true
+bbcode_text = "[center][shake level=20 rate=50] Git gut bro"
+text = " Git gut bro"
+
+[node name="Eject" type="Button" parent="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 737.0
+margin_top = 744.0
+margin_right = -931.0
+margin_bottom = -248.0
+theme = SubResource( 6 )
+text = "Eject"
+
+[node name="Replay" type="Button" parent="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1016.0
+margin_top = 744.0
+margin_right = -652.0
+margin_bottom = -248.0
+theme = SubResource( 7 )
+text = "Replay"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -5.0
+autoplay = true
+
+[connection signal="button_down" from="TextureRect/Eject" to="." method="_on_Eject_button_down"]
+[connection signal="button_down" from="TextureRect/Replay" to="." method="_on_Replay_button_down"]
