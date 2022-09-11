@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Tileable_Blue_Mosaic_Pool_Tiles_Texture_SPECULAR.jpg-1e727390da1aca842964d1c8966fcd07.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Textures/pooltiles/Tileable_Blue_Mosaic_Pool_Tiles_Texture_SPECULAR.jpg"
+dest_files=[ "res://.import/Tileable_Blue_Mosaic_Pool_Tiles_Texture_SPECULAR.jpg-1e727390da1aca842964d1c8966fcd07.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

@@ -47,8 +47,8 @@ expand = true
 [node name="EndOfTape" type="RichTextLabel" parent="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 476.0
-margin_bottom = -467.0
+margin_top = 385.0
+margin_bottom = -558.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource( 4 )
@@ -59,8 +59,8 @@ text = " End of tape"
 [node name="Hint" type="RichTextLabel" parent="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 621.0
-margin_bottom = -322.0
+margin_top = 530.0
+margin_bottom = -413.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource( 5 )
@@ -71,20 +71,20 @@ text = " Git gut bro"
 [node name="Eject" type="Button" parent="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 737.0
-margin_top = 744.0
-margin_right = -931.0
-margin_bottom = -248.0
+margin_left = 724.0
+margin_top = 675.0
+margin_right = -944.0
+margin_bottom = -317.0
 theme = SubResource( 6 )
 text = "Eject"
 
 [node name="Replay" type="Button" parent="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1016.0
-margin_top = 744.0
-margin_right = -652.0
-margin_bottom = -248.0
+margin_left = 1003.0
+margin_top = 675.0
+margin_right = -665.0
+margin_bottom = -317.0
 theme = SubResource( 7 )
 text = "Replay"
 

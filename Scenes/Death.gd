@@ -11,11 +11,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_Replay_button_down():
 	get_tree().change_scene("res://Scenes/Video.tscn")
 

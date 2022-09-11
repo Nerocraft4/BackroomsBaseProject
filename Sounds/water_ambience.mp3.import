@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/water_ambience.mp3-957b23663593427f769e7a4dffef8422.mp3str"
+
+[deps]
+
+source_file="res://Sounds/water_ambience.mp3"
+dest_files=[ "res://.import/water_ambience.mp3-957b23663593427f769e7a4dffef8422.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

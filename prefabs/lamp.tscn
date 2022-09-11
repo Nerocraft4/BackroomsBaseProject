@@ -10,3 +10,6 @@ visible = false
 
 [node name="OmniLight" type="OmniLight" parent="." index="1"]
 transform = Transform( 28.5714, 0, 0, 0, 28.5714, 0, 0, 0, 28.5714, 0, 7.2533, 0 )
+light_energy = 0.7
+omni_range = 10.0
+omni_attenuation = 2.2974
